@@ -1,10 +1,27 @@
+#include "debugger.hpp"
+#include "logger.hpp"
 #include <iostream>
 #include <ncurses.h>
-#include "debugger.hpp"
 using namespace std;
 
-int main(){
+int main() {
+
+  LoggerProxy log = Logger::getLoggerProxy("MAIN");
+
+  try {
+
     Debugger debugger;
-    getch();
+
+    log.setPrintTarget(debugger.getLogWindow());
+    log.log("Ceci est un message de debug", LogLevel::debug);
+    log.log("Ceci est un message d'information", LogLevel::info);
+    log.log("Ceci est un message d'avertissement", LogLevel::warning);
+    log.log("Ceci est un message d'erreur", LogLevel::error);
+    while(getch());
     return 0;
+
+  } catch (const char *err) {
+    std::cerr << err << std::endl;
+    return 0;
+  }
 }

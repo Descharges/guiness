@@ -8,5 +8,6 @@
         "**/Thumbs.db": true
     },
     "hide-files.files": [],
-    "cmake.sourceDirectory": "/home/paulc/gitshit/guiness/build"
+    "cmake.sourceDirectory": "/home/paulc/gitshit/guiness/build",
+    "cmake.configureOnOpen": false
 }

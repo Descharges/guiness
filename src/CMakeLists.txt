@@ -10,7 +10,9 @@ find_library(NCURSES_LIB ncurses)
 add_executable(guiness
     main.cpp 
     debugger.cpp 
-    debugger.hpp 
+    logger.cpp
+    debugger.hpp
+    logger.hpp
 )
 
 target_link_libraries(guiness PUBLIC "${NCURSES_LIB}")

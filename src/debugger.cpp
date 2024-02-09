@@ -114,3 +114,13 @@ void Debugger::displayLogMessage(const char *p_message) {
 };
 
 WINDOW *Debugger::getLogWindow() { return p_logWin; };
+
+void Debugger::updateWindows(){
+  endwin();
+  refresh();
+  resizeterm(getmaxy(this->p_mainWin), getmaxx(this->p_mainWin));
+  wrefresh(this->p_logWin);
+  wrefresh(this->p_ramWin);
+  wrefresh(this->p_stateWin);
+  refresh();
+}

@@ -17,7 +17,8 @@ int main() {
     log.log("Ceci est un message d'information", LogLevel::info);
     log.log("Ceci est un message d'avertissement", LogLevel::warning);
     log.log("Ceci est un message d'erreur", LogLevel::error);
-    while(getch());
+
+    getch();
     return 0;
 
   } catch (const char *err) {

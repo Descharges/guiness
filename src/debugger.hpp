@@ -19,6 +19,7 @@ public:
   Debugger();
   ~Debugger();
   void displayLogMessage(const char *p_message);
+  void updateWindows();
   WINDOW *getLogWindow();
 
 private:

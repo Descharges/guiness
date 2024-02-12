@@ -11,8 +11,10 @@ add_executable(guiness
     main.cpp 
     debugger.cpp 
     logger.cpp
+    bus.cpp
     debugger.hpp
     logger.hpp
+    bus.hpp
 )
 
 target_link_libraries(guiness PUBLIC "${NCURSES_LIB}")

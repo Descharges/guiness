@@ -1,28 +1,31 @@
+#include "bus.hpp"
 #include "debugger.hpp"
 #include "logger.hpp"
+#include <cstdint>
 #include <iostream>
+#include <memory>
 #include <ncurses.h>
-using namespace std;
+
+using std::shared_ptr;
 
 int main() {
 
-  LoggerProxy log = Logger::getLoggerProxy("MAIN");
+  LoggerProxy logMain = Logger::getLoggerProxy("MAIN");
 
-  try {
+  Debugger debugger;
 
-    Debugger debugger;
+  logMain.setPrintTarget(debugger.getLogWindow());
+  logMain.log("Ceci est un message de debug", LogLevel::debug);
+  logMain.log("Ceci est un message d'information", LogLevel::info);
+  logMain.log("Ceci est un message d'avertissement", LogLevel::warning);
+  logMain.log("Ceci est un message d'erreur", LogLevel::error);
 
-    log.setPrintTarget(debugger.getLogWindow());
-    log.log("Ceci est un message de debug", LogLevel::debug);
-    log.log("Ceci est un message d'information", LogLevel::info);
-    log.log("Ceci est un message d'avertissement", LogLevel::warning);
-    log.log("Ceci est un message d'erreur", LogLevel::error);
-
-    getch();
-    return 0;
-
-  } catch (const char *err) {
-    std::cerr << err << std::endl;
-    return 0;
+  {
+    auto bus = shared_ptr<Bus<uint16_t, uint8_t>>(new Bus<uint16_t, uint8_t>());
   }
+
+  while (1) {
+  }
+
+  return 0;
 }

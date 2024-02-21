@@ -5,7 +5,7 @@
 #include <cstdint>
 
 /**
- * @brief Dummy bus device using NES address & data length (16 & 8 bits)
+ * @brief Dummy bus device using NES address & data length (16 & 8 bits).
  * Used for test purposes
  *
  */

@@ -48,6 +48,7 @@ public:
 /**
  * @brief Structure with a bus device, and the first address at which the device
  * is "Plugged in".
+ *
  * eg : A device of size 10 plugged at the address 5 will see
  * read from address 5 to 14 frowarded to it.
  *
@@ -100,6 +101,15 @@ public:
    * @param addr  The address to write the value to
    */
   void write(data_t value, addr_t addr);
+
+  /**
+   * @brief "Plugs" a device into the bus.
+   *
+   * This is a test.
+   * 
+   * @param startAddr The first address which should be redirected to the device
+   * @param p_device Shared pointer to the device to add
+   */
   void addDevice(addr_t startAddr,
                  shared_ptr<BusDevice<addr_t, data_t>> p_device);
 

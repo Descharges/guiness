@@ -50,5 +50,8 @@ data_t Bus<addr_t, data_t>::read(addr_t addr) {
   return 0xff;
 };
 
+/** Bus template with 16 bits address and 8 bits values*/
 template class Bus<uint16_t, uint8_t>;
+
+/** BusDevice template with 16 bits address and 8 bits values*/
 template class BusDevice<uint16_t, uint8_t>;

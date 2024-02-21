@@ -1,6 +1,7 @@
 #include "bus.hpp"
 #include "debugger.hpp"
 #include "logger.hpp"
+#include "dummy_device.hpp"
 #include <cstdint>
 #include <iostream>
 #include <memory>
@@ -10,18 +11,18 @@ using std::shared_ptr;
 
 int main() {
 
-  LoggerProxy logMain = Logger::getLoggerProxy("MAIN");
+  LoggerProxy logMain = Logger::newLoggerProxy("MAIN");
 
   Debugger debugger;
-
   logMain.setPrintTarget(debugger.getLogWindow());
-  logMain.log("Ceci est un message de debug", LogLevel::debug);
-  logMain.log("Ceci est un message d'information", LogLevel::info);
-  logMain.log("Ceci est un message d'avertissement", LogLevel::warning);
-  logMain.log("Ceci est un message d'erreur", LogLevel::error);
 
   {
-    auto bus = shared_ptr<Bus<uint16_t, uint8_t>>(new Bus<uint16_t, uint8_t>());
+    auto p_bus = shared_ptr<Bus<uint16_t, uint8_t>>(new Bus<uint16_t, uint8_t>());
+    auto p_device = shared_ptr<DummyBusDevice>(new DummyBusDevice());
+    p_bus->addDevice(0xFFFE, p_device);
+    p_bus->read(0xFFFD);
+    p_bus->read(0xFFFE);
+    p_bus->read(0xFFFF);
   }
 
   while (1) {

@@ -1,14 +1,16 @@
 #include "logger.hpp"
+#include <iomanip>
+#include <ios>
 #include <iostream>
 #include <ncurses.h>
-
+#include <sstream>
 // Logger
 
 Logger Logger::s_instance;
 
 Logger::Logger(){};
 
-LoggerProxy Logger::getLoggerProxy(const char *p_id) {
+LoggerProxy Logger::newLoggerProxy(const char *p_id) {
   return LoggerProxy(p_id, Logger::s_instance);
 };
 
@@ -25,25 +27,25 @@ void Logger::printLogMessage(const char *p_id, const char *p_message,
 
     switch (lvl) {
     case debug:
-      prefix = "<D>";
+      prefix = "D";
       color_pair = DEFAULT_PAIR;
       break;
     case info:
-      prefix = "(i)";
+      prefix = "i";
       color_pair = INFO_PAIR;
       break;
     case warning:
-      prefix = "/!\\";
+      prefix = "!";
       color_pair = WARN_PAIR;
       break;
     case error:
-      prefix = "[X]";
+      prefix = "X";
       color_pair = ERR_PAIR;
       break;
     }
 
     wattron(p_displayWindow, COLOR_PAIR(color_pair));
-    wprintw(p_displayWindow, "[%s] %s %s\n", p_id, prefix, p_message);
+    wprintw(p_displayWindow, "%s | %s > %s\n", prefix, p_id, p_message);
     wrefresh(p_displayWindow);
     wattroff(p_displayWindow, COLOR_PAIR(color_pair));
 
@@ -57,10 +59,37 @@ void Logger::printLogMessage(const char *p_id, const char *p_message,
 LoggerProxy::LoggerProxy(const char *p_id, Logger &logger)
     : logger(logger), p_id(p_id) {}
 
-void LoggerProxy::log(const char *p_logMessage, LogLevel lvl) {
+void LoggerProxy::logCStr(const char *p_logMessage, LogLevel lvl) {
   logger.printLogMessage(p_id, p_logMessage, lvl);
+}
+
+void LoggerProxy::logStr(std::string logMessage, LogLevel lvl) {
+  this->logCStr(logMessage.c_str(), lvl);
+}
+
+void LoggerProxy::logSStream(std::stringstream &logStream, LogLevel lvl) {
+  this->logStr(logStream.str(), lvl);
 }
 
 void LoggerProxy::setPrintTarget(WINDOW *p_targetWindow) {
   logger.setPrintTarget(p_targetWindow);
 };
+
+std::string Logger::formatHex8bits(uint8_t n) {
+  std::stringstream ssout;
+  ssout << "0x" << std::uppercase << std::setfill('0') << std::setw(2)
+        << std::hex << unsigned(n);
+  return ssout.str();
+}
+
+std::string Logger::formatHex16bits(uint16_t n) {
+  std::stringstream ssout;
+  ssout << "0x" << std::uppercase << std::setfill('0') << std::setw(4)
+        << std::hex << unsigned(n);
+  return ssout.str();
+}
+
+// i >
+// D >
+// ! >
+// X | Dummy >

@@ -18,7 +18,6 @@ int main() {
   logMain.setPrintTarget(debugger.getLogWindow());
 
   {
-    std::stringstream ssout;
 
     auto p_bus =
         shared_ptr<Bus<uint16_t, uint8_t>>(new Bus<uint16_t, uint8_t>());

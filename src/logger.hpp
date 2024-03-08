@@ -132,12 +132,28 @@ public:
    */
   void setPrintTarget(WINDOW *p_targetWindow);
 
+  /**
+   * @brief Get the String Stream object
+   *
+   * @return std::stringstream
+   */
+  std::stringstream &getStringStream();
+
+  /**
+   * @brief Display the content of the string stream and clears it
+   * 
+   */
+  void flushSsLog(LogLevel lvl = debug);
+
 private:
   /** String identifier*/
   const char *p_id;
 
   /** Logger instance*/
   Logger &logger;
+
+  /** String stream*/
+  std::stringstream sslog;
 
   LoggerProxy();
 };

@@ -14,9 +14,8 @@ uint8_t WRam::read(uint16_t addr) {
     logWRam.logCStr("Read out of bounds in RAM, returning 0", LogLevel::error);
     return 0;
   } else {
-    std::stringstream ssout;
-    ssout << "Reading " << Logger::formatHex8bits(this->ram[addr]) <<" at address " << Logger::formatHex16bits(addr);
-    logWRam.logSStream(ssout);
+    logWRam.getStringStream() << "Reading " << Logger::formatHex8bits(this->ram[addr]) <<" at address " << Logger::formatHex16bits(addr);
+    logWRam.flushSsLog();
     return this->ram[addr];
   }
 }
@@ -25,9 +24,8 @@ void WRam::write(uint8_t value, uint16_t addr) {
   if (addr >= 0x800) {
     logWRam.logCStr("Write out of bounds in RAM", LogLevel::error);
   } else {
-    std::stringstream ssout;
-    ssout << "Writing " << Logger::formatHex8bits(value)<< " at address " << Logger::formatHex16bits(addr);
-    logWRam.logSStream(ssout);
+    logWRam.getStringStream() << "Writing " << Logger::formatHex8bits(value)<< " at address " << Logger::formatHex16bits(addr);
+    logWRam.flushSsLog();
     this->ram[addr] = value;
   }
 }

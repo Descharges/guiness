@@ -75,6 +75,15 @@ void LoggerProxy::setPrintTarget(WINDOW *p_targetWindow) {
   logger.setPrintTarget(p_targetWindow);
 };
 
+std::stringstream &LoggerProxy::getStringStream(){
+  return this->sslog;
+}
+
+void LoggerProxy::flushSsLog(LogLevel lvl){
+  this->logSStream(this->sslog, lvl);
+  sslog.str("");
+}
+
 std::string Logger::formatHex8bits(uint8_t n) {
   std::stringstream ssout;
   ssout << "0x" << std::uppercase << std::setfill('0') << std::setw(2)
@@ -88,7 +97,6 @@ std::string Logger::formatHex16bits(uint16_t n) {
         << std::hex << unsigned(n);
   return ssout.str();
 }
-
 // i >
 // D >
 // ! >

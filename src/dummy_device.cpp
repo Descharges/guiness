@@ -13,17 +13,15 @@ DummyBusDevice::~DummyBusDevice() {
 }
 
 uint8_t DummyBusDevice::read(uint16_t addr) {
-  std::stringstream ssout;
-  ssout << "Read to dummy at address $" << Logger::formatHex16bits(addr);
-  logDummy.logSStream(ssout);
+  logDummy.getStringStream() << "Read to dummy at address $" << Logger::formatHex16bits(addr);
+  logDummy.flushSsLog();
   return 255;
 };
 
 void DummyBusDevice::write(uint8_t value, uint16_t addr) {
-  std::stringstream ssout;
-  ssout << "Write " << Logger::formatHex8bits(value) << " to dummy at address "
+  logDummy.getStringStream() << "Write " << Logger::formatHex8bits(value) << " to dummy at address "
         << Logger::formatHex16bits(addr);
-  logDummy.logSStream(ssout);
+  logDummy.flushSsLog();
 }
 
 uint16_t DummyBusDevice::getSize() { return 1; };

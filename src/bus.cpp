@@ -15,7 +15,7 @@ using std::stringstream;
 LoggerProxy logBus = Logger::newLoggerProxy("BUS");
 
 template <typename addr_t, typename data_t> Bus<addr_t, data_t>::Bus() {
-  this->deviceList = list<PluggedDevice<addr_t, data_t>>();
+  this->deviceList = list<std::shared_ptr<BusDevice<addr_t, data_t>>>();
   logBus.logCStr("Device bus initialized", LogLevel::info);
 }
 
@@ -25,23 +25,20 @@ template <typename addr_t, typename data_t> Bus<addr_t, data_t>::~Bus() {
 
 template <typename addr_t, typename data_t>
 void Bus<addr_t, data_t>::addDevice(
-    addr_t startAddr, shared_ptr<BusDevice<addr_t, data_t>> p_device) {
-  PluggedDevice<addr_t, data_t> newDevice;
-  newDevice.device = p_device;
-  newDevice.address = startAddr;
-  this->deviceList.push_front(newDevice);
+    shared_ptr<BusDevice<addr_t, data_t>> p_device) {
+  this->deviceList.push_front(p_device);
 
   std::stringstream ssout;
   ssout << "Added device of type " << typeid(*p_device).name() << " at address "
-        << Logger::formatHex16bits(startAddr);
+        << Logger::formatHex16bits(p_device->getLocation());
   logBus.logSStream(ssout);
 }
 
 template <typename addr_t, typename data_t>
 data_t Bus<addr_t, data_t>::read(addr_t addr) {
-  for (PluggedDevice<addr_t, data_t> const &i : this->deviceList) {
-    if (addr >= i.address && addr <= i.address + i.device->getSize()) {
-      return i.device->read(addr);
+  for (std::shared_ptr<BusDevice<addr_t, data_t>> const &i : this->deviceList) {
+    if (addr >= i->getLocation() && addr <= i->getLocation() + i->getSize()) {
+      return i->read(addr);
     }
   }
   logBus.logCStr(
@@ -52,17 +49,16 @@ data_t Bus<addr_t, data_t>::read(addr_t addr) {
 
 template <typename addr_t, typename data_t>
 void Bus<addr_t, data_t>::write(data_t value, addr_t addr) {
-  for (PluggedDevice<addr_t, data_t> const &i : this->deviceList) {
-    if (addr >= i.address && addr <= i.address + i.device->getSize()) {
-      i.device->write(value, addr);
+  for (std::shared_ptr<BusDevice<addr_t, data_t>> const &i : this->deviceList) {
+    if (addr >= i->getLocation() && addr <= i->getLocation() + i->getSize()) {
+      i->write(value, addr);
       return;
     }
   }
   logBus.logCStr(
       "Open bus behaviour : address doesn't have any devices asscoiated to it",
       LogLevel::error);
-}
-;
+};
 
 /** Bus template with 16 bits address and 8 bits values*/
 template class Bus<uint16_t, uint8_t>;

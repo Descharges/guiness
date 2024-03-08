@@ -2,8 +2,8 @@
 #define WRAM_H
 
 #include "bus.hpp"
-#include <cstdint>
 #include <array>
+#include <cstdint>
 
 /**
  * @brief Work ram of the NES.
@@ -22,7 +22,7 @@ public:
 
   /**
    * @brief Destroy the WRam object
-   * 
+   *
    */
   ~WRam();
 
@@ -49,11 +49,17 @@ public:
    */
   uint16_t getSize();
 
-private:
+  /**
+   * @brief Get the location of the RAM
+   *
+   * @return uint16_t
+   */
+  uint16_t getLocation();
 
+private:
   /**
    * @brief The array representing RAM
-   * 
+   *
    */
   uint8_t ram[0x800] = {0};
 };

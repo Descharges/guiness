@@ -43,25 +43,13 @@ public:
    * @return addr_t The number of addresses
    */
   virtual addr_t getSize() = 0;
-};
 
-/**
- * @brief Structure with a bus device, and the first address at which the device
- * is "Plugged in".
- *
- * eg : A device of size 10 plugged at the address 5 will see
- * read from address 5 to 14 frowarded to it.
- *
- * @tparam addr_t The type used to represent adresse
- * @tparam data_t The type of the data the device will return
- */
-template <typename addr_t, typename data_t> struct PluggedDevice {
-
-  /** Shared pointer to a device*/
-  shared_ptr<BusDevice<addr_t, data_t>> device;
-
-  /** The adress at which it is plugged in*/
-  addr_t address;
+  /**
+   * @brief Get the position at which the device should be "plugged in".
+   *
+   * @return addr_t The address of the device.
+   */
+  virtual addr_t getLocation() = 0;
 };
 
 /**
@@ -106,15 +94,14 @@ public:
    * @brief "Plugs" a device into the bus.
    *
    * This is a test.
-   * 
+   *
    * @param startAddr The first address which should be redirected to the device
    * @param p_device Shared pointer to the device to add
    */
-  void addDevice(addr_t startAddr,
-                 shared_ptr<BusDevice<addr_t, data_t>> p_device);
+  void addDevice(shared_ptr<BusDevice<addr_t, data_t>> p_device);
 
 private:
-  list<PluggedDevice<addr_t, data_t>> deviceList;
+  list<std::shared_ptr<BusDevice<addr_t, data_t>>> deviceList;
 };
 
 #endif

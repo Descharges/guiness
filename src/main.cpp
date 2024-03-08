@@ -1,11 +1,12 @@
 #include "bus.hpp"
 #include "debugger.hpp"
 #include "logger.hpp"
-#include "dummy_device.hpp"
+#include "wram.hpp"
 #include <cstdint>
 #include <iostream>
 #include <memory>
 #include <ncurses.h>
+#include <sstream>
 
 using std::shared_ptr;
 
@@ -17,12 +18,17 @@ int main() {
   logMain.setPrintTarget(debugger.getLogWindow());
 
   {
+    std::stringstream ssout;
+
     auto p_bus = shared_ptr<Bus<uint16_t, uint8_t>>(new Bus<uint16_t, uint8_t>());
-    auto p_device = shared_ptr<DummyBusDevice>(new DummyBusDevice());
-    p_bus->addDevice(0xFFFE, p_device);
-    p_bus->read(0xFFFD);
-    p_bus->read(0xFFFE);
-    p_bus->read(0xFFFF);
+    auto p_wram = shared_ptr<WRam>(new WRam());
+    p_bus->addDevice(0x0000, p_wram);
+
+    p_bus->write(0x21, 0x0000);
+    ssout << "Read value at addr 0x0000 : " << Logger::formatHex8bits(p_bus->read(0x0000));
+    logMain.logSStream(ssout);
+    ssout.str("");
+    
   }
 
   while (1) {

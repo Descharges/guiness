@@ -16,7 +16,7 @@ LoggerProxy logBus = Logger::newLoggerProxy("BUS");
 
 template <typename addr_t, typename data_t> Bus<addr_t, data_t>::Bus() {
   this->deviceList = list<PluggedDevice<addr_t, data_t>>();
-  logBus.logCStr("Device bus initialized");
+  logBus.logCStr("Device bus initialized", LogLevel::info);
 }
 
 template <typename addr_t, typename data_t> Bus<addr_t, data_t>::~Bus() {
@@ -49,6 +49,20 @@ data_t Bus<addr_t, data_t>::read(addr_t addr) {
       LogLevel::error);
   return 0xff;
 };
+
+template <typename addr_t, typename data_t>
+void Bus<addr_t, data_t>::write(data_t value, addr_t addr) {
+  for (PluggedDevice<addr_t, data_t> const &i : this->deviceList) {
+    if (addr >= i.address && addr <= i.address + i.device->getSize()) {
+      i.device->write(value, addr);
+      return;
+    }
+  }
+  logBus.logCStr(
+      "Open bus behaviour : address doesn't have any devices asscoiated to it",
+      LogLevel::error);
+}
+;
 
 /** Bus template with 16 bits address and 8 bits values*/
 template class Bus<uint16_t, uint8_t>;

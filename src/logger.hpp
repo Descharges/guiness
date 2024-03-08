@@ -96,7 +96,7 @@ public:
    * @param p_logMessage
    * @param lvl Log level
    */
-  void logCStr(const char *p_logMessage, LogLevel lvl = info);
+  void logCStr(const char *p_logMessage, LogLevel lvl = debug);
 
   /**
    * @brief Logs a std::string
@@ -104,7 +104,7 @@ public:
    * @param logMessage
    * @param lvl  Log Level
    */
-  void logStr(std::string logMessage, LogLevel lvl = info);
+  void logStr(std::string logMessage, LogLevel lvl = debug);
 
   /**
    * @brief Logs a std::stringstream
@@ -112,7 +112,7 @@ public:
    * @param logStream
    * @param lvl Log level
    */
-  void logSStream(std::stringstream &logStream, LogLevel lvl = info);
+  void logSStream(std::stringstream &logStream, LogLevel lvl = debug);
 
   /**
    * @brief Construct a new Logger Proxy object

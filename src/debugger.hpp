@@ -14,7 +14,8 @@
 #define RAM_BROWSER_WIDTH 34
 
 /**
- * @brief Class responsible for the debug interface
+ * @brief Class responsible for the debug interface.
+ *
  * Creates, destroys and handles the content of the
  * Ncurses windows
  *
@@ -23,7 +24,8 @@ class Debugger {
 
 public:
   /**
-   * @brief Construct a new Debugger object
+   * @brief Construct a new Debugger object.
+   *
    * Initialize NCurses and all the windows used
    * in the CLI.
    *
@@ -31,7 +33,8 @@ public:
   Debugger();
 
   /**
-   * @brief Destroy the Debugger object
+   * @brief Destroy the Debugger object.
+   *
    * Destroys windows and terminates the Ncurses
    * Context
    *

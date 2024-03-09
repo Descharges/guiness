@@ -28,8 +28,8 @@ void Bus<addr_t, data_t>::addDevice(
     shared_ptr<BusDevice<addr_t, data_t>> p_device) {
   this->deviceList.push_front(p_device);
 
-  logBus.getStringStream() << "Added device of type " << typeid(*p_device).name() << " at address "
-        << Logger::formatHex16bits(p_device->getLocation());
+  logBus << "Added device of type " << typeid(*p_device).name() << " at address "
+        << Logger::formatHex16(p_device->getLocation());
   logBus.flushSsLog();
 }
 

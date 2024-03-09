@@ -39,7 +39,7 @@ public:
    * @param n The 8 bit number to format
    * @return std::string The formated string
    */
-  static std::string formatHex8bits(uint8_t n);
+  static std::string formatHex8(uint8_t n);
 
   /**
    * @brief Format 16 bit numbers as hexadecimal in a string (65536 -> 0xFFFF)
@@ -47,7 +47,7 @@ public:
    * @param n The 16 bit number to format
    * @return std::string The formated string
    */
-  static std::string formatHex16bits(uint16_t n);
+  static std::string formatHex16(uint16_t n);
 
   /**
    * @brief Set the Ncurses window which will receive log messages
@@ -140,10 +140,26 @@ public:
   std::stringstream &getStringStream();
 
   /**
-   * @brief Display the content of the string stream and clears it
-   * 
+   * @brief Display the content of the string stream and clears it.
+   *
    */
   void flushSsLog(LogLevel lvl = debug);
+
+  /**
+   * @brief Adds a C string to the logger string stream.
+   *
+   * @param p_cStr The C string to add to the stream
+   * @return LoggerProxy& Reference to itself
+   */
+  LoggerProxy &operator<<(const char *p_cStr);
+
+  /**
+   * @brief Adds a string to the logger string stream.
+   *
+   * @param str The string to add to the stream
+   * @return LoggerProxy& Reference to itself
+   */
+  LoggerProxy &operator<<(std::string str);
 
 private:
   /** String identifier*/

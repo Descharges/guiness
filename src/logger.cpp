@@ -4,6 +4,7 @@
 #include <iostream>
 #include <ncurses.h>
 #include <sstream>
+#include <streambuf>
 // Logger
 
 Logger Logger::s_instance;
@@ -84,14 +85,24 @@ void LoggerProxy::flushSsLog(LogLevel lvl){
   sslog.str("");
 }
 
-std::string Logger::formatHex8bits(uint8_t n) {
+LoggerProxy &LoggerProxy::operator<<(const char *p_cStr){
+  sslog << p_cStr;
+  return *this;
+}
+
+LoggerProxy &LoggerProxy::operator<<(std::string str){
+  sslog << str;
+  return *this;
+}
+
+std::string Logger::formatHex8(uint8_t n) {
   std::stringstream ssout;
   ssout << "0x" << std::uppercase << std::setfill('0') << std::setw(2)
         << std::hex << unsigned(n);
   return ssout.str();
 }
 
-std::string Logger::formatHex16bits(uint16_t n) {
+std::string Logger::formatHex16(uint16_t n) {
   std::stringstream ssout;
   ssout << "0x" << std::uppercase << std::setfill('0') << std::setw(4)
         << std::hex << unsigned(n);

@@ -13,14 +13,14 @@ DummyBusDevice::~DummyBusDevice() {
 }
 
 uint8_t DummyBusDevice::read(uint16_t addr) {
-  logDummy.getStringStream() << "Read to dummy at address $" << Logger::formatHex16bits(addr);
+  logDummy << "Read to dummy at address $" << Logger::formatHex16(addr);
   logDummy.flushSsLog();
   return 255;
 };
 
 void DummyBusDevice::write(uint8_t value, uint16_t addr) {
-  logDummy.getStringStream() << "Write " << Logger::formatHex8bits(value) << " to dummy at address "
-        << Logger::formatHex16bits(addr);
+  logDummy << "Write " << Logger::formatHex8(value) << " to dummy at address "
+           << Logger::formatHex16(addr);
   logDummy.flushSsLog();
 }
 

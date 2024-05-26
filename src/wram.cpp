@@ -3,7 +3,7 @@
 #include <cstdint>
 #include <sstream>
 
-auto logWRam = Logger::newLoggerProxy("WRAM");
+auto logWRam = Logger::newIdLogger("WRAM");
 
 WRam::WRam() { logWRam.logCStr("WRAM initialized", LogLevel::info); }
 

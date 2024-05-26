@@ -12,7 +12,7 @@ using std::shared_ptr;
 
 int main() {
 
-  LoggerProxy logMain = Logger::newLoggerProxy("MAIN");
+  IdLogger logMain = Logger::newIdLogger("MAIN");
 
   Debugger debugger;
   logMain.setPrintTarget(debugger.getLogWindow());

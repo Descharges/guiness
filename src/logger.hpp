@@ -14,7 +14,7 @@
 
 enum LogLevel { debug, info, warning, error };
 
-class LoggerProxy;
+class IdLogger;
 
 /**
  * @brief Singelton used for logging
@@ -29,9 +29,9 @@ public:
    *
    * @param p_id the string identifier which will be reported in the logs when
    * using the proxy
-   * @return LoggerProxy the newly created proxy
+   * @return IdLogger the newly created proxy
    */
-  static LoggerProxy newLoggerProxy(const char *p_id);
+  static IdLogger newIdLogger(const char *p_id);
 
   /**
    * @brief Format 8 bit numbers as hexadecimal in a string (255 -> 0xFF)
@@ -87,7 +87,7 @@ private:
  * @brief used to interract with the logger instance.
  * Forces to use a unique and constant identifier.
  */
-class LoggerProxy {
+class IdLogger {
 
 public:
   /**
@@ -118,12 +118,12 @@ public:
    * @brief Construct a new Logger Proxy object
    * Using this constructor direclty is impossible since
    * obtaining a LoggerInstance is impossible.
-   * The logger has a method to obtain a new LoggerProxy.
+   * The logger has a method to obtain a new IdLogger.
    *
    * @param p_id The string identifier
    * @param loggerInstance
    */
-  LoggerProxy(const char *p_id, Logger &loggerInstance);
+  IdLogger(const char *p_id, Logger &loggerInstance);
 
   /**
    * @brief Set the Ncurses window which will receive log messages
@@ -149,17 +149,17 @@ public:
    * @brief Adds a C string to the logger string stream.
    *
    * @param p_cStr The C string to add to the stream
-   * @return LoggerProxy& Reference to itself
+   * @return IdLogger& Reference to itself
    */
-  LoggerProxy &operator<<(const char *p_cStr);
+  IdLogger &operator<<(const char *p_cStr);
 
   /**
    * @brief Adds a string to the logger string stream.
    *
    * @param str The string to add to the stream
-   * @return LoggerProxy& Reference to itself
+   * @return IdLogger& Reference to itself
    */
-  LoggerProxy &operator<<(std::string str);
+  IdLogger &operator<<(std::string str);
 
 private:
   /** String identifier*/
@@ -171,7 +171,7 @@ private:
   /** String stream*/
   std::stringstream sslog;
 
-  LoggerProxy();
+  IdLogger();
 };
 
 #endif

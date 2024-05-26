@@ -4,7 +4,7 @@
 #include <sstream>
 #include <string>
 
-LoggerProxy logDummy = Logger::newLoggerProxy("DUMMY");
+IdLogger logDummy = Logger::newIdLogger("DUMMY");
 
 DummyBusDevice::DummyBusDevice() { logDummy.logCStr("Dummy initialized"); }
 

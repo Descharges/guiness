@@ -12,7 +12,7 @@ using std::shared_ptr;
 using std::string;
 using std::stringstream;
 
-LoggerProxy logBus = Logger::newLoggerProxy("BUS");
+IdLogger logBus = Logger::newIdLogger("BUS");
 
 template <typename addr_t, typename data_t> Bus<addr_t, data_t>::Bus() {
   this->deviceList = list<std::shared_ptr<BusDevice<addr_t, data_t>>>();

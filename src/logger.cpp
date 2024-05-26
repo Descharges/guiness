@@ -11,8 +11,8 @@ Logger Logger::s_instance;
 
 Logger::Logger(){};
 
-LoggerProxy Logger::newLoggerProxy(const char *p_id) {
-  return LoggerProxy(p_id, Logger::s_instance);
+IdLogger Logger::newIdLogger(const char *p_id) {
+  return IdLogger(p_id, Logger::s_instance);
 };
 
 void Logger::setPrintTarget(WINDOW *p_targetWindow) {
@@ -57,40 +57,40 @@ void Logger::printLogMessage(const char *p_id, const char *p_message,
 
 // Logger proxy
 
-LoggerProxy::LoggerProxy(const char *p_id, Logger &logger)
+IdLogger::IdLogger(const char *p_id, Logger &logger)
     : logger(logger), p_id(p_id) {}
 
-void LoggerProxy::logCStr(const char *p_logMessage, LogLevel lvl) {
+void IdLogger::logCStr(const char *p_logMessage, LogLevel lvl) {
   logger.printLogMessage(p_id, p_logMessage, lvl);
 }
 
-void LoggerProxy::logStr(std::string logMessage, LogLevel lvl) {
+void IdLogger::logStr(std::string logMessage, LogLevel lvl) {
   this->logCStr(logMessage.c_str(), lvl);
 }
 
-void LoggerProxy::logSStream(std::stringstream &logStream, LogLevel lvl) {
+void IdLogger::logSStream(std::stringstream &logStream, LogLevel lvl) {
   this->logStr(logStream.str(), lvl);
 }
 
-void LoggerProxy::setPrintTarget(WINDOW *p_targetWindow) {
+void IdLogger::setPrintTarget(WINDOW *p_targetWindow) {
   logger.setPrintTarget(p_targetWindow);
 };
 
-std::stringstream &LoggerProxy::getStringStream(){
+std::stringstream &IdLogger::getStringStream(){
   return this->sslog;
 }
 
-void LoggerProxy::flushSsLog(LogLevel lvl){
+void IdLogger::flushSsLog(LogLevel lvl){
   this->logSStream(this->sslog, lvl);
   sslog.str("");
 }
 
-LoggerProxy &LoggerProxy::operator<<(const char *p_cStr){
+IdLogger &IdLogger::operator<<(const char *p_cStr){
   sslog << p_cStr;
   return *this;
 }
 
-LoggerProxy &LoggerProxy::operator<<(std::string str){
+IdLogger &IdLogger::operator<<(std::string str){
   sslog << str;
   return *this;
 }

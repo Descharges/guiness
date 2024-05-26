@@ -14,11 +14,13 @@ add_executable(guiness
     bus.cpp
     wram.cpp
     dummy_device.cpp
+    config.cpp
     debugger.hpp
     logger.hpp
     bus.hpp
     dummy_device.hpp
     wram.hpp
+    config.hpp
 )
 
 target_link_libraries(guiness PUBLIC "${NCURSES_LIB}")

@@ -1,8 +1,9 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
-#include <cstdint>
 #include <ncurses.h>
+
+#include <cstdint>
 #include <sstream>
 #include <string>
 
@@ -21,66 +22,65 @@ class IdLogger;
  *
  */
 class Logger {
+   public:
+    /**
+     * @brief create a new Logger Proxy object
+     * This is the object with which is used to log messages
+     *
+     * @param p_id the string identifier which will be reported in the logs when
+     * using the proxy
+     * @return IdLogger the newly created proxy
+     */
+    static IdLogger newIdLogger(const char *p_id);
 
-public:
-  /**
-   * @brief create a new Logger Proxy object
-   * This is the object with which is used to log messages
-   *
-   * @param p_id the string identifier which will be reported in the logs when
-   * using the proxy
-   * @return IdLogger the newly created proxy
-   */
-  static IdLogger newIdLogger(const char *p_id);
+    /**
+     * @brief Format 8 bit numbers as hexadecimal in a string (255 -> 0xFF)
+     *
+     * @param n The 8 bit number to format
+     * @return std::string The formated string
+     */
+    static std::string formatHex8(uint8_t n);
 
-  /**
-   * @brief Format 8 bit numbers as hexadecimal in a string (255 -> 0xFF)
-   *
-   * @param n The 8 bit number to format
-   * @return std::string The formated string
-   */
-  static std::string formatHex8(uint8_t n);
+    /**
+     * @brief Format 16 bit numbers as hexadecimal in a string (65536 -> 0xFFFF)
+     *
+     * @param n The 16 bit number to format
+     * @return std::string The formated string
+     */
+    static std::string formatHex16(uint16_t n);
 
-  /**
-   * @brief Format 16 bit numbers as hexadecimal in a string (65536 -> 0xFFFF)
-   *
-   * @param n The 16 bit number to format
-   * @return std::string The formated string
-   */
-  static std::string formatHex16(uint16_t n);
+    /**
+     * @brief Set the Ncurses window which will receive log messages
+     *
+     * @param p_targetWindow Ncurses window
+     */
+    void setPrintTarget(WINDOW *p_targetWindow);
 
-  /**
-   * @brief Set the Ncurses window which will receive log messages
-   *
-   * @param p_targetWindow Ncurses window
-   */
-  void setPrintTarget(WINDOW *p_targetWindow);
+    /**
+     * @brief Print log message to target windows if set, STDOUT if not
+     *
+     * @param p_id The string identifier of the message
+     * @param p_message The log message
+     * @param lvl The log level
+     */
+    void printLogMessage(const char *p_id, const char *p_message, LogLevel lvl);
 
-  /**
-   * @brief Print log message to target windows if set, STDOUT if not
-   *
-   * @param p_id The string identifier of the message
-   * @param p_message The log message
-   * @param lvl The log level
-   */
-  void printLogMessage(const char *p_id, const char *p_message, LogLevel lvl);
+   private:
+    /**
+     * @brief Construct a new Logger object
+     *
+     */
+    Logger();
 
-private:
-  /**
-   * @brief Construct a new Logger object
-   *
-   */
-  Logger();
+    /**
+     * @brief The singleton instance of Logger
+     */
+    static Logger s_instance;
 
-  /**
-   * @brief The singleton instance of Logger
-   */
-  static Logger s_instance;
-
-  /**
-   * @brief Ncurses windows which will receive log messages
-   */
-  WINDOW *p_displayWindow = NULL;
+    /**
+     * @brief Ncurses windows which will receive log messages
+     */
+    WINDOW *p_displayWindow = NULL;
 };
 
 /**
@@ -88,90 +88,89 @@ private:
  * Forces to use a unique and constant identifier.
  */
 class IdLogger {
+   public:
+    /**
+     * @brief Logs a C string
+     *
+     * @param p_logMessage
+     * @param lvl Log level
+     */
+    void logCStr(const char *p_logMessage, LogLevel lvl = debug);
 
-public:
-  /**
-   * @brief Logs a C string
-   *
-   * @param p_logMessage
-   * @param lvl Log level
-   */
-  void logCStr(const char *p_logMessage, LogLevel lvl = debug);
+    /**
+     * @brief Logs a std::string
+     *
+     * @param logMessage
+     * @param lvl  Log Level
+     */
+    void logStr(std::string logMessage, LogLevel lvl = debug);
 
-  /**
-   * @brief Logs a std::string
-   *
-   * @param logMessage
-   * @param lvl  Log Level
-   */
-  void logStr(std::string logMessage, LogLevel lvl = debug);
+    /**
+     * @brief Logs a std::stringstream
+     *
+     * @param logStream
+     * @param lvl Log level
+     */
+    void logSStream(std::stringstream &logStream, LogLevel lvl = debug);
 
-  /**
-   * @brief Logs a std::stringstream
-   *
-   * @param logStream
-   * @param lvl Log level
-   */
-  void logSStream(std::stringstream &logStream, LogLevel lvl = debug);
+    /**
+     * @brief Construct a new Logger Proxy object
+     * Using this constructor direclty is impossible since
+     * obtaining a LoggerInstance is impossible.
+     * The logger has a method to obtain a new IdLogger.
+     *
+     * @param p_id The string identifier
+     * @param loggerInstance
+     */
+    IdLogger(const char *p_id, Logger &loggerInstance);
 
-  /**
-   * @brief Construct a new Logger Proxy object
-   * Using this constructor direclty is impossible since
-   * obtaining a LoggerInstance is impossible.
-   * The logger has a method to obtain a new IdLogger.
-   *
-   * @param p_id The string identifier
-   * @param loggerInstance
-   */
-  IdLogger(const char *p_id, Logger &loggerInstance);
+    /**
+     * @brief Set the Ncurses window which will receive log messages
+     *
+     * @param p_targetWindow Ncurses window
+     */
+    void setPrintTarget(WINDOW *p_targetWindow);
 
-  /**
-   * @brief Set the Ncurses window which will receive log messages
-   *
-   * @param p_targetWindow Ncurses window
-   */
-  void setPrintTarget(WINDOW *p_targetWindow);
+    /**
+     * @brief Get the String Stream object
+     *
+     * @return std::stringstream
+     */
+    std::stringstream &getStringStream();
 
-  /**
-   * @brief Get the String Stream object
-   *
-   * @return std::stringstream
-   */
-  std::stringstream &getStringStream();
+    /**
+     * @brief Display the content of the string stream and clears it.
+     *
+     */
+    void flushSsLog(LogLevel lvl = debug);
 
-  /**
-   * @brief Display the content of the string stream and clears it.
-   *
-   */
-  void flushSsLog(LogLevel lvl = debug);
+    /**
+     * @brief Adds a C string to the logger string stream.
+     *
+     * @param p_cStr The C string to add to the stream
+     * @return IdLogger& Reference to itself
+     */
+    IdLogger &operator<<(const char *p_cStr);
 
-  /**
-   * @brief Adds a C string to the logger string stream.
-   *
-   * @param p_cStr The C string to add to the stream
-   * @return IdLogger& Reference to itself
-   */
-  IdLogger &operator<<(const char *p_cStr);
+    /**
+     * @brief Adds a string to the logger string stream.
+     *
+     * @param str The string to add to the stream
+     * @return IdLogger& Reference to itself
+     */
+    IdLogger &operator<<(std::string str);
 
-  /**
-   * @brief Adds a string to the logger string stream.
-   *
-   * @param str The string to add to the stream
-   * @return IdLogger& Reference to itself
-   */
-  IdLogger &operator<<(std::string str);
+   private:
+    /** String identifier*/
+    const char *p_id;
 
-private:
-  /** String identifier*/
-  const char *p_id;
+    /** Logger instance*/
+    Logger &logger;
 
-  /** Logger instance*/
-  Logger &logger;
+    /** String stream*/
+    std::stringstream sslog;
 
-  /** String stream*/
-  std::stringstream sslog;
-
-  IdLogger();
+    IdLogger();
 };
 
 #endif

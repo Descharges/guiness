@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['pluggeddevice_0',['PluggedDevice',['../structPluggedDevice.html',1,'']]],
-  ['printlogmessage_1',['printLogMessage',['../classLogger.html#a82183d97eb0d12acd219ee9ecd5bbc67',1,'Logger']]]
+  ['idlogger_0',['IdLogger',['../classIdLogger.html',1,'IdLogger'],['../classIdLogger.html#ac59b0b75e878164881e5bb8b48da1a56',1,'IdLogger::IdLogger()']]]
 ];

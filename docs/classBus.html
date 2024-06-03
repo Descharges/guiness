@@ -124,9 +124,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a75d99ee9a4b8f988523d6f670b793161" id="r_a75d99ee9a4b8f988523d6f670b793161"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75d99ee9a4b8f988523d6f670b793161">write</a> (data_t value, addr_t addr)</td></tr>
 <tr class="memdesc:a75d99ee9a4b8f988523d6f670b793161"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forwards write request at the device connected to this address.  <br /></td></tr>
 <tr class="separator:a75d99ee9a4b8f988523d6f670b793161"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ab68f00d60ebc968be5f86648219163" id="r_a9ab68f00d60ebc968be5f86648219163"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ab68f00d60ebc968be5f86648219163">addDevice</a> (addr_t startAddr, shared_ptr&lt; <a class="el" href="classBusDevice.html">BusDevice</a>&lt; addr_t, data_t &gt; &gt; p_device)</td></tr>
-<tr class="memdesc:a9ab68f00d60ebc968be5f86648219163"><td class="mdescLeft">&#160;</td><td class="mdescRight">"Plugs" a device into the bus.  <br /></td></tr>
-<tr class="separator:a9ab68f00d60ebc968be5f86648219163"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a38416c87bef4abcc5b80acd1dae265" id="r_a4a38416c87bef4abcc5b80acd1dae265"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a38416c87bef4abcc5b80acd1dae265">addDevice</a> (shared_ptr&lt; <a class="el" href="classBusDevice.html">BusDevice</a>&lt; addr_t, data_t &gt; &gt; p_device)</td></tr>
+<tr class="memdesc:a4a38416c87bef4abcc5b80acd1dae265"><td class="mdescLeft">&#160;</td><td class="mdescRight">"Plugs" a device into the bus.  <br /></td></tr>
+<tr class="separator:a4a38416c87bef4abcc5b80acd1dae265"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename addr_t, typename data_t&gt;<br />
@@ -139,8 +139,8 @@ class Bus&lt; addr_t, data_t &gt;</div><p>Redirects read and write request on an
   </dd>
 </dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9ab68f00d60ebc968be5f86648219163" name="a9ab68f00d60ebc968be5f86648219163"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ab68f00d60ebc968be5f86648219163">&#9670;&#160;</a></span>addDevice()</h2>
+<a id="a4a38416c87bef4abcc5b80acd1dae265" name="a4a38416c87bef4abcc5b80acd1dae265"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a38416c87bef4abcc5b80acd1dae265">&#9670;&#160;</a></span>addDevice()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -150,12 +150,8 @@ template&lt;typename addr_t , typename data_t &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classBus.html">Bus</a>&lt; addr_t, data_t &gt;::addDevice </td>
           <td>(</td>
-          <td class="paramtype">addr_t</td>          <td class="paramname"><span class="paramname"><em>startAddr</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">shared_ptr&lt; <a class="el" href="classBusDevice.html">BusDevice</a>&lt; addr_t, data_t &gt; &gt;</td>          <td class="paramname"><span class="paramname"><em>p_device</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">shared_ptr&lt; <a class="el" href="classBusDevice.html">BusDevice</a>&lt; addr_t, data_t &gt; &gt;</td>          <td class="paramname"><span class="paramname"><em>p_device</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

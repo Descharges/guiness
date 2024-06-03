@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['formathex16bits_0',['formatHex16bits',['../classLogger.html#a5fc3ef62335b1cd565bc6467060cab32',1,'Logger']]],
-  ['formathex8bits_1',['formatHex8bits',['../classLogger.html#ac94e531fba781a3867aa010777092a11',1,'Logger']]]
+  ['debugger_0',['Debugger',['../classDebugger.html#a2b76be38cdcef612b0f307758c5ea17a',1,'Debugger']]],
+  ['defaultconfig_1',['defaultConfig',['../classConfig.html#abf8b9bb55511ac348954bf4675fc6b4d',1,'Config']]],
+  ['displaylogmessage_2',['displayLogMessage',['../classDebugger.html#aa78a640a2d8a3a6352e8a963af059651',1,'Debugger']]],
+  ['dummybusdevice_3',['DummyBusDevice',['../classDummyBusDevice.html#aa6753d41ef93593e237de718dd59ea24',1,'DummyBusDevice']]]
 ];

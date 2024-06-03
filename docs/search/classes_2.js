@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['logger_0',['Logger',['../classLogger.html',1,'']]],
-  ['loggerproxy_1',['LoggerProxy',['../classLoggerProxy.html',1,'']]]
+  ['debugger_0',['Debugger',['../classDebugger.html',1,'']]],
+  ['dummybusdevice_1',['DummyBusDevice',['../classDummyBusDevice.html',1,'']]]
 ];

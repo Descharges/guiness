@@ -103,20 +103,18 @@ $(function(){initNavTree('classDebugger.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 
-<p>Class responsible for the debug interface Creates, destroys and handles the content of the Ncurses windows.  
+<p>Class responsible for the debug interface.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="debugger_8hpp_source.html">debugger.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2b76be38cdcef612b0f307758c5ea17a" id="r_a2b76be38cdcef612b0f307758c5ea17a"><td class="memItemLeft" align="right" valign="top"><a id="a2b76be38cdcef612b0f307758c5ea17a" name="a2b76be38cdcef612b0f307758c5ea17a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Debugger</b> ()</td></tr>
-<tr class="memdesc:a2b76be38cdcef612b0f307758c5ea17a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classDebugger.html" title="Class responsible for the debug interface Creates, destroys and handles the content of the Ncurses wi...">Debugger</a> object Initialize NCurses and all the windows used in the CLI. <br /></td></tr>
+<tr class="memitem:a2b76be38cdcef612b0f307758c5ea17a" id="r_a2b76be38cdcef612b0f307758c5ea17a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b76be38cdcef612b0f307758c5ea17a">Debugger</a> ()</td></tr>
+<tr class="memdesc:a2b76be38cdcef612b0f307758c5ea17a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classDebugger.html" title="Class responsible for the debug interface.">Debugger</a> object.  <br /></td></tr>
 <tr class="separator:a2b76be38cdcef612b0f307758c5ea17a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12f822c5d6749212d35a6ff006edcf31" id="r_a12f822c5d6749212d35a6ff006edcf31"><td class="memItemLeft" align="right" valign="top"><a id="a12f822c5d6749212d35a6ff006edcf31" name="a12f822c5d6749212d35a6ff006edcf31"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>~Debugger</b> ()</td></tr>
-<tr class="memdesc:a12f822c5d6749212d35a6ff006edcf31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the <a class="el" href="classDebugger.html" title="Class responsible for the debug interface Creates, destroys and handles the content of the Ncurses wi...">Debugger</a> object Destroys windows and terminates the Ncurses Context. <br /></td></tr>
+<tr class="memitem:a12f822c5d6749212d35a6ff006edcf31" id="r_a12f822c5d6749212d35a6ff006edcf31"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12f822c5d6749212d35a6ff006edcf31">~Debugger</a> ()</td></tr>
+<tr class="memdesc:a12f822c5d6749212d35a6ff006edcf31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the <a class="el" href="classDebugger.html" title="Class responsible for the debug interface.">Debugger</a> object.  <br /></td></tr>
 <tr class="separator:a12f822c5d6749212d35a6ff006edcf31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa78a640a2d8a3a6352e8a963af059651" id="r_aa78a640a2d8a3a6352e8a963af059651"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa78a640a2d8a3a6352e8a963af059651">displayLogMessage</a> (const char *p_message)</td></tr>
 <tr class="memdesc:aa78a640a2d8a3a6352e8a963af059651"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays text in the log window of the interface.  <br /></td></tr>
@@ -130,8 +128,50 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>updateWindows</b> ()<
 <tr class="separator:a134505cba82c12619711b28800d2b8fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class responsible for the debug interface Creates, destroys and handles the content of the Ncurses windows. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<div class="textblock"><p>Class responsible for the debug interface. </p>
+<p>Creates, destroys and handles the content of the Ncurses windows </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a2b76be38cdcef612b0f307758c5ea17a" name="a2b76be38cdcef612b0f307758c5ea17a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b76be38cdcef612b0f307758c5ea17a">&#9670;&#160;</a></span>Debugger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Debugger::Debugger </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construct a new <a class="el" href="classDebugger.html" title="Class responsible for the debug interface.">Debugger</a> object. </p>
+<p>Initialize NCurses and all the windows used in the CLI. </p>
+
+</div>
+</div>
+<a id="a12f822c5d6749212d35a6ff006edcf31" name="a12f822c5d6749212d35a6ff006edcf31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12f822c5d6749212d35a6ff006edcf31">&#9670;&#160;</a></span>~Debugger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Debugger::~Debugger </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destroy the <a class="el" href="classDebugger.html" title="Class responsible for the debug interface.">Debugger</a> object. </p>
+<p>Destroys windows and terminates the Ncurses Context </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa78a640a2d8a3a6352e8a963af059651" name="aa78a640a2d8a3a6352e8a963af059651"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa78a640a2d8a3a6352e8a963af059651">&#9670;&#160;</a></span>displayLogMessage()</h2>
 

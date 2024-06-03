@@ -119,6 +119,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a701638acb6d3da537fbc0cdb8e25d467" id="r_a701638acb6d3da537fbc0cdb8e25d467"><td class="memItemLeft" align="right" valign="top">virtual addr_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a701638acb6d3da537fbc0cdb8e25d467">getSize</a> ()=0</td></tr>
 <tr class="memdesc:a701638acb6d3da537fbc0cdb8e25d467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of addresses the devices occupies.  <br /></td></tr>
 <tr class="separator:a701638acb6d3da537fbc0cdb8e25d467"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8770ac82f10d456806744936db70a5f" id="r_ab8770ac82f10d456806744936db70a5f"><td class="memItemLeft" align="right" valign="top">virtual addr_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8770ac82f10d456806744936db70a5f">getLocation</a> ()=0</td></tr>
+<tr class="memdesc:ab8770ac82f10d456806744936db70a5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the position at which the device should be "plugged in".  <br /></td></tr>
+<tr class="separator:ab8770ac82f10d456806744936db70a5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename addr_t, typename data_t&gt;<br />
@@ -131,6 +134,38 @@ class BusDevice&lt; addr_t, data_t &gt;</div><p>Abstract type used to represent 
   </dd>
 </dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab8770ac82f10d456806744936db70a5f" name="ab8770ac82f10d456806744936db70a5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8770ac82f10d456806744936db70a5f">&#9670;&#160;</a></span>getLocation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename addr_t , typename data_t &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual addr_t <a class="el" href="classBusDevice.html">BusDevice</a>&lt; addr_t, data_t &gt;::getLocation </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the position at which the device should be "plugged in". </p>
+<dl class="section return"><dt>Returns</dt><dd>addr_t The address of the device. </dd></dl>
+
+<p>Implemented in <a class="el" href="classWRam.html#a6c86bb8bdb17a034ace158905705b5c7">WRam</a>.</p>
+
+</div>
+</div>
 <a id="a701638acb6d3da537fbc0cdb8e25d467" name="a701638acb6d3da537fbc0cdb8e25d467"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a701638acb6d3da537fbc0cdb8e25d467">&#9670;&#160;</a></span>getSize()</h2>
 
@@ -159,7 +194,7 @@ template&lt;typename addr_t , typename data_t &gt; </div>
 <p>Get the number of addresses the devices occupies. </p>
 <dl class="section return"><dt>Returns</dt><dd>addr_t The number of addresses </dd></dl>
 
-<p>Implemented in <a class="el" href="classDummyBusDevice.html#a90b401147dae7a423c4b9d3392e6ec83">DummyBusDevice</a>.</p>
+<p>Implemented in <a class="el" href="classDummyBusDevice.html#a90b401147dae7a423c4b9d3392e6ec83">DummyBusDevice</a>, and <a class="el" href="classWRam.html#aecb315419bb4dd865529c3ecbf7f4cfa">WRam</a>.</p>
 
 </div>
 </div>
@@ -197,7 +232,7 @@ template&lt;typename addr_t , typename data_t &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>data_t The read value </dd></dl>
 
-<p>Implemented in <a class="el" href="classDummyBusDevice.html#a88a12bf8c523e325fb387309f5d03639">DummyBusDevice</a>.</p>
+<p>Implemented in <a class="el" href="classDummyBusDevice.html#a88a12bf8c523e325fb387309f5d03639">DummyBusDevice</a>, and <a class="el" href="classWRam.html#a03aed286333358b617bb7f0c90d1aef2">WRam</a>.</p>
 
 </div>
 </div>
@@ -239,7 +274,7 @@ template&lt;typename addr_t , typename data_t &gt; </div>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classDummyBusDevice.html#a7fdabeda536954feabef36614f39922c">DummyBusDevice</a>.</p>
+<p>Implemented in <a class="el" href="classDummyBusDevice.html#a7fdabeda536954feabef36614f39922c">DummyBusDevice</a>, and <a class="el" href="classWRam.html#ac4ca8a6a16f36cf9e7a8218e0c30ed8a">WRam</a>.</p>
 
 </div>
 </div>

@@ -2,9 +2,11 @@ var annotated_dup =
 [
     [ "Bus", "classBus.html", "classBus" ],
     [ "BusDevice", "classBusDevice.html", "classBusDevice" ],
+    [ "Config", "classConfig.html", "classConfig" ],
     [ "Debugger", "classDebugger.html", "classDebugger" ],
     [ "DummyBusDevice", "classDummyBusDevice.html", "classDummyBusDevice" ],
+    [ "IdLogger", "classIdLogger.html", "classIdLogger" ],
     [ "Logger", "classLogger.html", "classLogger" ],
-    [ "LoggerProxy", "classLoggerProxy.html", "classLoggerProxy" ],
-    [ "PluggedDevice", "structPluggedDevice.html", "structPluggedDevice" ]
+    [ "Video", "classVideo.html", "classVideo" ],
+    [ "WRam", "classWRam.html", "classWRam" ]
 ];

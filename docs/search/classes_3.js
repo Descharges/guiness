@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pluggeddevice_0',['PluggedDevice',['../structPluggedDevice.html',1,'']]]
+  ['idlogger_0',['IdLogger',['../classIdLogger.html',1,'']]]
 ];

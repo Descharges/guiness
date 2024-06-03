@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['_7ebus_0',['~Bus',['../classBus.html#a335e7b34d80143571e29b67578274f4e',1,'Bus']]],
-  ['_7edebugger_1',['~Debugger',['../classDebugger.html#a12f822c5d6749212d35a6ff006edcf31',1,'Debugger']]],
-  ['_7edummybusdevice_2',['~DummyBusDevice',['../classDummyBusDevice.html#ad6e5ee282ba4dd6a9e51448815e0cdfe',1,'DummyBusDevice']]]
+  ['read_0',['read',['../classBusDevice.html#a9c93f5d04159d7c3d66422b94a0dc6c7',1,'BusDevice::read()'],['../classBus.html#a0dc0342fcd51724a3af477f51ca5f92d',1,'Bus::read()'],['../classDummyBusDevice.html#a88a12bf8c523e325fb387309f5d03639',1,'DummyBusDevice::read()'],['../classWRam.html#a03aed286333358b617bb7f0c90d1aef2',1,'WRam::read()']]]
 ];

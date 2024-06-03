@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['setprinttarget_0',['setPrintTarget',['../classLogger.html#a814ac17892866a05114382c660127fc6',1,'Logger::setPrintTarget()'],['../classLoggerProxy.html#ac2ca8eb55160613cfcc7554e53e4954e',1,'LoggerProxy::setPrintTarget()']]]
+  ['newidlogger_0',['newIdLogger',['../classLogger.html#ac1be085bef12f9105e808b1ab2adbcf0',1,'Logger']]]
 ];

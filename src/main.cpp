@@ -1,3 +1,4 @@
+#include <SDL2/SDL.h>
 #include <ncurses.h>
 
 #include <cstdint>
@@ -9,6 +10,7 @@
 #include "config.hpp"
 #include "debugger.hpp"
 #include "logger.hpp"
+#include "video.hpp"
 #include "wram.hpp"
 
 using std::shared_ptr;
@@ -30,11 +32,26 @@ int main() {
 
         auto config = shared_ptr<Config>(Config::defaultConfig());
         config->logConfig();
-        logMain << "Cringe";
+        logMain.logStr("Cringe");
+
+        auto p_video = shared_ptr<Video>(new Video(500, 500));
+
+        // Boucle d'événements
+        bool quit = false;
+        SDL_Event e;
+        while (!quit) {
+            while (SDL_PollEvent(&e) != 0) {
+                if (e.type == SDL_QUIT) {
+                    quit = true;
+                }
+            }
+            SDL_Delay(16);
+        }
     }
 
-    while (1) {
-    }
+    // Fin du debugger
+    logMain.logStr("Program finished with no issues, press a key to exit...");
+    std::cin.get();
 
     return 0;
 }

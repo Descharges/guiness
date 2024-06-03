@@ -1,7 +1,11 @@
 #ifndef DEBUGGER_H
 #define DEBUGGER_H
+
 #include <ncurses.h>
 
+#include <iostream>
+
+#include "logger.hpp"
 #define HEADER_PAIR 1
 #define WARN_PAIR 2
 #define ERR_PAIR 3

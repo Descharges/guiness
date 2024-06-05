@@ -18,7 +18,7 @@ IdLogger logBus = Logger::newIdLogger("BUS");
 
 template <typename addr_t, typename data_t>
 Bus<addr_t, data_t>::Bus() {
-    this->deviceList = list<std::shared_ptr<BusDevice<addr_t, data_t>>>();
+    this->deviceList = list<shared_ptr<BusDevice<addr_t, data_t>>>();
     logBus.logCStr("Device bus initialized", LogLevel::info);
 }
 
@@ -39,7 +39,7 @@ void Bus<addr_t, data_t>::addDevice(
 
 template <typename addr_t, typename data_t>
 data_t Bus<addr_t, data_t>::read(addr_t addr) {
-    for (std::shared_ptr<BusDevice<addr_t, data_t>> const &i :
+    for (shared_ptr<BusDevice<addr_t, data_t>> const &i :
          this->deviceList) {
         if (addr >= i->getLocation() &&
             addr <= i->getLocation() + i->getSize()) {
@@ -55,7 +55,7 @@ data_t Bus<addr_t, data_t>::read(addr_t addr) {
 
 template <typename addr_t, typename data_t>
 void Bus<addr_t, data_t>::write(data_t value, addr_t addr) {
-    for (std::shared_ptr<BusDevice<addr_t, data_t>> const &i :
+    for (shared_ptr<BusDevice<addr_t, data_t>> const &i :
          this->deviceList) {
         if (addr >= i->getLocation() &&
             addr <= i->getLocation() + i->getSize()) {

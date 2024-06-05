@@ -6,6 +6,8 @@
 
 #include "logger.hpp"
 
+#undef getch
+
 Debugger::Debugger() {
     // Create main window
     WINDOW *p_mainWin = getLargeWindow();
@@ -19,12 +21,16 @@ Debugger::Debugger() {
 };
 
 Debugger::~Debugger() {
+    this->displayLogMessage("E | The debugger is being destroyed. Press a key to continue...");
+    flushinp();
+    getch();
     endwin();
     std::cout << "Debugger destroyed :D" << std::endl;
 };
 
 WINDOW *Debugger::getLargeWindow() {
     WINDOW *p_largeWindow = initscr();
+    cbreak();
     refresh();
 
     auto totalHeight = MIN_LOG_HEIGHT + SYSTEM_STATUS_HEIGHT;

@@ -4,6 +4,9 @@
 #include <string>
 #include <unordered_map>
 
+using std::string;
+using std::unordered_map;
+
 /**
  * @brief Stores the configuration of the application.
  *
@@ -17,7 +20,7 @@ class Config {
      * @brief Construct a new Config object
      *
      */
-    Config(std::unordered_map<std::string, std::string> const &defaultConfig);
+    Config(unordered_map<string, string> const &defaultConfig);
 
     /**
      * @brief Returns a new Config with default values
@@ -27,7 +30,7 @@ class Config {
     /**
      *
      */
-    static Config *configFromFile(std::string const &path);
+    static Config *configFromFile(string const &path);
 
     /**
      *
@@ -47,7 +50,7 @@ class Config {
      * @return true The id is a member of the configuration
      * @return false The id is not a member of the configuration
      */
-    bool exists(std::string const &id);
+    bool exists(string const &id);
 
     /**
      * @brief Sets the value of a configuration member.
@@ -55,26 +58,26 @@ class Config {
      * @param id The id of the member.
      * @param value The value to set.
      */
-    void set(std::string const &id, std::string const &value);
+    void set(string const &id, string const &value);
 
     /**
      * @brief Gets the value of a configuration member.
      *
      * @param id The id of the member.
-     * @return std::string The value of the member. Empty string if the member
+     * @return string The value of the member. Empty string if the member
      * is not found.
      */
-    std::string get(std::string const &id);
+    string get(string const &id);
 
     /**
      * @brief Get a member of configuration and casts it as a boolean
      */
-    bool getAsBool(std::string const &id);
+    bool getAsBool(string const &id);
 
     /**
      * @brief Get a member of configuration and casts it as an unsigned int
      */
-    unsigned int getAsUInt(std::string const &id);
+    unsigned int getAsUInt(string const &id);
 
     /**
      * @brief Logs the config
@@ -83,8 +86,8 @@ class Config {
     void logConfig();
 
    private:
-    /** Strores string config members*/
-    std::unordered_map<std::string, std::string> configMap;
+    /** Stores string config members*/
+    unordered_map<string, string> configMap;
 };
 
 #endif

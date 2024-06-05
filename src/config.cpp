@@ -1,27 +1,32 @@
 #include "config.hpp"
 
 #include <sstream>
+#include <unordered_map>
 
 #include "logger.hpp"
 
 IdLogger logConf = Logger::newIdLogger("CONFIG");
 
-Config::Config(
-    std::unordered_map<std::string, std::string> const &defaultConfig) {
-    this->configMap = defaultConfig;
+using std::unordered_map;
+using std::string;
+
+const unordered_map<string, string> defaultConfigMap = {
+    {"FPS", "60"},
+    {"BREAK_MODE", "NONE"},  // {NONE, FRAME, STEP}
+    {"DEBUGGER", "TRUE"}};
+;
+
+Config::Config(unordered_map<string, string> const &initConfig) {
+    this->configMap = initConfig;
 }
 
 Config *Config::defaultConfig() {
-    std::unordered_map<std::string, std::string> defaultConf = {
-        {"FPS", "60"}, {"BREAK_MODE", "NONE"},  // {NONE, FRAME, STEP}
-    };
+    unordered_map<string, string> defaultConf = defaultConfigMap;
 
     return new Config(defaultConf);
 }
 
-Config *Config::configFromFile(std::string const &path) {
-    throw "Not implemented";
-}
+Config *Config::configFromFile(string const &path) { throw "Not implemented"; }
 
 Config *Config::configFromArgs(int argc, char *argv[]) {
     throw "Not implemented";
@@ -29,7 +34,7 @@ Config *Config::configFromArgs(int argc, char *argv[]) {
 
 Config::~Config() {}
 
-bool Config::exists(std::string const &id) {
+bool Config::exists(string const &id) {
     auto it = configMap.find(id);
 
     if (it == this->configMap.end()) {
@@ -39,7 +44,7 @@ bool Config::exists(std::string const &id) {
     return true;
 }
 
-void Config::set(std::string const &id, std::string const &value) {
+void Config::set(string const &id, string const &value) {
     if (exists(id)) {
         this->configMap[id] = value;
         return;
@@ -50,7 +55,7 @@ void Config::set(std::string const &id, std::string const &value) {
     logConf.flushSsLog(error);
 }
 
-std::string Config::get(std::string const &id) {
+string Config::get(string const &id) {
     if (exists(id)) {
         return this->configMap[id];
     }
@@ -61,11 +66,11 @@ std::string Config::get(std::string const &id) {
     return "";
 }
 
-bool Config::getAsBool(std::string const &id) {
+bool Config::getAsBool(string const &id) {
     throw "Config::getAsBool is not implemented yet.";
 }
 
-unsigned int Config::getAsUInt(std::string const &id) {
+unsigned int Config::getAsUInt(string const &id) {
     throw "Config::getAsUInt is not implemented yet.";
 }
 

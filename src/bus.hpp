@@ -102,7 +102,7 @@ class Bus {
     void addDevice(shared_ptr<BusDevice<addr_t, data_t>> p_device);
 
    private:
-    list<std::shared_ptr<BusDevice<addr_t, data_t>>> deviceList;
+    list<shared_ptr<BusDevice<addr_t, data_t>>> deviceList;
 };
 
 #endif

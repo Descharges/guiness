@@ -32,7 +32,6 @@ int main() {
 
         auto config = shared_ptr<Config>(Config::defaultConfig());
         config->logConfig();
-        logMain.logStr("Cringe");
 
         auto p_video = shared_ptr<Video>(new Video(500, 500));
 
@@ -49,9 +48,7 @@ int main() {
         }
     }
 
-    // Fin du debugger
-    logMain.logStr("Program finished with no issues, press a key to exit...");
-    std::cin.get();
+    
 
     return 0;
 }

@@ -13,6 +13,10 @@
 #define DEFAULT_PAIR 4
 #define INFO_PAIR 5
 
+using std::string;
+using std::stringstream;
+
+
 enum LogLevel { debug, info, warning, error };
 
 class IdLogger;
@@ -37,17 +41,17 @@ class Logger {
      * @brief Format 8 bit numbers as hexadecimal in a string (255 -> 0xFF)
      *
      * @param n The 8 bit number to format
-     * @return std::string The formated string
+     * @return string The formated string
      */
-    static std::string formatHex8(uint8_t n);
+    static string formatHex8(uint8_t n);
 
     /**
      * @brief Format 16 bit numbers as hexadecimal in a string (65536 -> 0xFFFF)
      *
      * @param n The 16 bit number to format
-     * @return std::string The formated string
+     * @return string The formated string
      */
-    static std::string formatHex16(uint16_t n);
+    static string formatHex16(uint16_t n);
 
     /**
      * @brief Set the Ncurses window which will receive log messages
@@ -98,20 +102,20 @@ class IdLogger {
     void logCStr(const char *p_logMessage, LogLevel lvl = debug);
 
     /**
-     * @brief Logs a std::string
+     * @brief Logs a string
      *
      * @param logMessage
      * @param lvl  Log Level
      */
-    void logStr(std::string logMessage, LogLevel lvl = debug);
+    void logStr(string logMessage, LogLevel lvl = debug);
 
     /**
-     * @brief Logs a std::stringstream
+     * @brief Logs a stringstream
      *
      * @param logStream
      * @param lvl Log level
      */
-    void logSStream(std::stringstream &logStream, LogLevel lvl = debug);
+    void logSStream(stringstream &logStream, LogLevel lvl = debug);
 
     /**
      * @brief Construct a new Logger Proxy object
@@ -134,9 +138,9 @@ class IdLogger {
     /**
      * @brief Get the String Stream object
      *
-     * @return std::stringstream
+     * @return stringstream
      */
-    std::stringstream &getStringStream();
+    stringstream &getStringStream();
 
     /**
      * @brief Display the content of the string stream and clears it.
@@ -158,7 +162,7 @@ class IdLogger {
      * @param str The string to add to the stream
      * @return IdLogger& Reference to itself
      */
-    IdLogger &operator<<(std::string str);
+    IdLogger &operator<<(string str);
 
    private:
     /** String identifier*/
@@ -168,7 +172,7 @@ class IdLogger {
     Logger &logger;
 
     /** String stream*/
-    std::stringstream sslog;
+    stringstream sslog;
 
     IdLogger();
 };

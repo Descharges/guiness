@@ -7,8 +7,15 @@
 #include <iostream>
 #include <sstream>
 #include <streambuf>
-// Logger
 
+using std::hex;
+using std::setfill;
+using std::setw;
+using std::string;
+using std::stringstream;
+using std::uppercase;
+
+// Logger
 Logger Logger::s_instance;
 
 Logger::Logger(){};
@@ -65,11 +72,11 @@ void IdLogger::logCStr(const char *p_logMessage, LogLevel lvl) {
     logger.printLogMessage(p_id, p_logMessage, lvl);
 }
 
-void IdLogger::logStr(std::string logMessage, LogLevel lvl) {
+void IdLogger::logStr(string logMessage, LogLevel lvl) {
     this->logCStr(logMessage.c_str(), lvl);
 }
 
-void IdLogger::logSStream(std::stringstream &logStream, LogLevel lvl) {
+void IdLogger::logSStream(stringstream &logStream, LogLevel lvl) {
     this->logStr(logStream.str(), lvl);
 }
 
@@ -77,7 +84,7 @@ void IdLogger::setPrintTarget(WINDOW *p_targetWindow) {
     logger.setPrintTarget(p_targetWindow);
 };
 
-std::stringstream &IdLogger::getStringStream() { return this->sslog; }
+stringstream &IdLogger::getStringStream() { return this->sslog; }
 
 void IdLogger::flushSsLog(LogLevel lvl) {
     this->logSStream(this->sslog, lvl);
@@ -89,22 +96,20 @@ IdLogger &IdLogger::operator<<(const char *p_cStr) {
     return *this;
 }
 
-IdLogger &IdLogger::operator<<(std::string str) {
+IdLogger &IdLogger::operator<<(string str) {
     sslog << str;
     return *this;
 }
 
-std::string Logger::formatHex8(uint8_t n) {
-    std::stringstream ssout;
-    ssout << "0x" << std::uppercase << std::setfill('0') << std::setw(2)
-          << std::hex << unsigned(n);
+string Logger::formatHex8(uint8_t n) {
+    stringstream ssout;
+    ssout << "0x" << uppercase << setfill('0') << setw(2) << hex << unsigned(n);
     return ssout.str();
 }
 
-std::string Logger::formatHex16(uint16_t n) {
-    std::stringstream ssout;
-    ssout << "0x" << std::uppercase << std::setfill('0') << std::setw(4)
-          << std::hex << unsigned(n);
+string Logger::formatHex16(uint16_t n) {
+    stringstream ssout;
+    ssout << "0x" << uppercase << setfill('0') << setw(4) << hex << unsigned(n);
     return ssout.str();
 }
 // i >

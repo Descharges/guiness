@@ -98,147 +98,78 @@ $(function(){initNavTree('classConfig.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classConfig-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Config Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Stores the configuration of the application.  
- <a href="#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="config_8hpp_source.html">config.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a19d0d04ac28188ce9fd972ea39524499" id="r_a19d0d04ac28188ce9fd972ea39524499"><td class="memItemLeft" align="right" valign="top"><a id="a19d0d04ac28188ce9fd972ea39524499" name="a19d0d04ac28188ce9fd972ea39524499"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Config</b> (std::unordered_map&lt; std::string, std::string &gt; const &amp;<a class="el" href="#abf8b9bb55511ac348954bf4675fc6b4d">defaultConfig</a>)</td></tr>
-<tr class="memdesc:a19d0d04ac28188ce9fd972ea39524499"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classConfig.html" title="Stores the configuration of the application.">Config</a> object. <br /></td></tr>
-<tr class="separator:a19d0d04ac28188ce9fd972ea39524499"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cfa7fe54c99dc4e81c63b350aaca106" id="r_a2cfa7fe54c99dc4e81c63b350aaca106"><td class="memItemLeft" align="right" valign="top"><a id="a2cfa7fe54c99dc4e81c63b350aaca106" name="a2cfa7fe54c99dc4e81c63b350aaca106"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Config</b> (const vector&lt; <a class="el" href="classConfigEntry.html">ConfigEntry</a>&lt; unsigned int &gt; &gt; &amp;intEntries, const vector&lt; <a class="el" href="classConfigEntry.html">ConfigEntry</a>&lt; string &gt; &gt; &amp;stringEntries)</td></tr>
+<tr class="memdesc:a2cfa7fe54c99dc4e81c63b350aaca106"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classConfig.html">Config</a> object. <br /></td></tr>
+<tr class="separator:a2cfa7fe54c99dc4e81c63b350aaca106"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a543dce59b66475c5108088ee4ce1cdfc" id="r_a543dce59b66475c5108088ee4ce1cdfc"><td class="memItemLeft" align="right" valign="top"><a id="a543dce59b66475c5108088ee4ce1cdfc" name="a543dce59b66475c5108088ee4ce1cdfc"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~Config</b> ()</td></tr>
-<tr class="memdesc:a543dce59b66475c5108088ee4ce1cdfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the <a class="el" href="classConfig.html" title="Stores the configuration of the application.">Config</a> object. <br /></td></tr>
+<tr class="memdesc:a543dce59b66475c5108088ee4ce1cdfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the <a class="el" href="classConfig.html">Config</a> object. <br /></td></tr>
 <tr class="separator:a543dce59b66475c5108088ee4ce1cdfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11d33c55b5b018c7c374bed274775623" id="r_a11d33c55b5b018c7c374bed274775623"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11d33c55b5b018c7c374bed274775623">exists</a> (std::string const &amp;id)</td></tr>
-<tr class="memdesc:a11d33c55b5b018c7c374bed274775623"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if an id is a config member.  <br /></td></tr>
-<tr class="separator:a11d33c55b5b018c7c374bed274775623"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9a39cfc53fb14376658cf52b5f5dfd2" id="r_ac9a39cfc53fb14376658cf52b5f5dfd2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9a39cfc53fb14376658cf52b5f5dfd2">set</a> (std::string const &amp;id, std::string const &amp;value)</td></tr>
-<tr class="memdesc:ac9a39cfc53fb14376658cf52b5f5dfd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the value of a configuration member.  <br /></td></tr>
-<tr class="separator:ac9a39cfc53fb14376658cf52b5f5dfd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c6479be00e83621fe48338de2bbe6b0" id="r_a0c6479be00e83621fe48338de2bbe6b0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c6479be00e83621fe48338de2bbe6b0">get</a> (std::string const &amp;id)</td></tr>
-<tr class="memdesc:a0c6479be00e83621fe48338de2bbe6b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the value of a configuration member.  <br /></td></tr>
-<tr class="separator:a0c6479be00e83621fe48338de2bbe6b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54c360e96b434403518d6c7c77e6adb8" id="r_a54c360e96b434403518d6c7c77e6adb8"><td class="memItemLeft" align="right" valign="top"><a id="a54c360e96b434403518d6c7c77e6adb8" name="a54c360e96b434403518d6c7c77e6adb8"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getAsBool</b> (std::string const &amp;id)</td></tr>
-<tr class="memdesc:a54c360e96b434403518d6c7c77e6adb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a member of configuration and casts it as a boolean. <br /></td></tr>
-<tr class="separator:a54c360e96b434403518d6c7c77e6adb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1bc69940042a05972a640005d187ff2" id="r_af1bc69940042a05972a640005d187ff2"><td class="memItemLeft" align="right" valign="top"><a id="af1bc69940042a05972a640005d187ff2" name="af1bc69940042a05972a640005d187ff2"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getAsUInt</b> (std::string const &amp;id)</td></tr>
-<tr class="memdesc:af1bc69940042a05972a640005d187ff2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a member of configuration and casts it as an unsigned int. <br /></td></tr>
-<tr class="separator:af1bc69940042a05972a640005d187ff2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c7af00d506cf7c4bda2c8ad55df2cbf" id="r_a0c7af00d506cf7c4bda2c8ad55df2cbf"><td class="memItemLeft" align="right" valign="top"><a id="a0c7af00d506cf7c4bda2c8ad55df2cbf" name="a0c7af00d506cf7c4bda2c8ad55df2cbf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>logConfig</b> ()</td></tr>
-<tr class="memdesc:a0c7af00d506cf7c4bda2c8ad55df2cbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs the config. <br /></td></tr>
-<tr class="separator:a0c7af00d506cf7c4bda2c8ad55df2cbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:abf8b9bb55511ac348954bf4675fc6b4d" id="r_abf8b9bb55511ac348954bf4675fc6b4d"><td class="memItemLeft" align="right" valign="top"><a id="abf8b9bb55511ac348954bf4675fc6b4d" name="abf8b9bb55511ac348954bf4675fc6b4d"></a>
-static <a class="el" href="classConfig.html">Config</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>defaultConfig</b> ()</td></tr>
-<tr class="memdesc:abf8b9bb55511ac348954bf4675fc6b4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new <a class="el" href="classConfig.html" title="Stores the configuration of the application.">Config</a> with default values. <br /></td></tr>
-<tr class="separator:abf8b9bb55511ac348954bf4675fc6b4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa6c533e86723c17ff42832c1841857a" id="r_aaa6c533e86723c17ff42832c1841857a"><td class="memItemLeft" align="right" valign="top"><a id="aaa6c533e86723c17ff42832c1841857a" name="aaa6c533e86723c17ff42832c1841857a"></a>
-static <a class="el" href="classConfig.html">Config</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>configFromFile</b> (std::string const &amp;path)</td></tr>
-<tr class="separator:aaa6c533e86723c17ff42832c1841857a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acaf363f9993feaafe40fd39a37ae46f3" id="r_acaf363f9993feaafe40fd39a37ae46f3"><td class="memItemLeft" align="right" valign="top"><a id="acaf363f9993feaafe40fd39a37ae46f3" name="acaf363f9993feaafe40fd39a37ae46f3"></a>
-static <a class="el" href="classConfig.html">Config</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>configFromArgs</b> (int argc, char *argv[])</td></tr>
-<tr class="separator:acaf363f9993feaafe40fd39a37ae46f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59fa8b5c72841efd3fa4491b0493ea8e" id="r_a59fa8b5c72841efd3fa4491b0493ea8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classConfigEntry.html">ConfigEntry</a>&lt; string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59fa8b5c72841efd3fa4491b0493ea8e">stringEntry</a> (string id)</td></tr>
+<tr class="memdesc:a59fa8b5c72841efd3fa4491b0493ea8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a string config entry.  <br /></td></tr>
+<tr class="separator:a59fa8b5c72841efd3fa4491b0493ea8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ef7d44a48b5528f1166e4d756b4e131" id="r_a3ef7d44a48b5528f1166e4d756b4e131"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classConfigEntry.html">ConfigEntry</a>&lt; unsigned int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ef7d44a48b5528f1166e4d756b4e131">intEntry</a> (string id)</td></tr>
+<tr class="memdesc:a3ef7d44a48b5528f1166e4d756b4e131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get an int config entry.  <br /></td></tr>
+<tr class="separator:a3ef7d44a48b5528f1166e4d756b4e131"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Stores the configuration of the application. </p>
-<p>Acts as a wrapper around a map with key and values as string, but with options to cast and with checks to forbid the addition of new members after object creation. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a11d33c55b5b018c7c374bed274775623" name="a11d33c55b5b018c7c374bed274775623"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a11d33c55b5b018c7c374bed274775623">&#9670;&#160;</a></span>exists()</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3ef7d44a48b5528f1166e4d756b4e131" name="a3ef7d44a48b5528f1166e4d756b4e131"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ef7d44a48b5528f1166e4d756b4e131">&#9670;&#160;</a></span>intEntry()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool Config::exists </td>
+          <td class="memname"><a class="el" href="classConfigEntry.html">ConfigEntry</a>&lt; unsigned int &gt; &amp; Config::intEntry </td>
           <td>(</td>
-          <td class="paramtype">std::string const &amp;</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Checks if an id is a config member. </p>
+<p>Get an int config entry. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">id</td><td>The id to check </td></tr>
+    <tr><td class="paramname">id</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true The id is a member of the configuration </dd>
-<dd>
-false The id is not a member of the configuration </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classConfigEntry.html">ConfigEntry&lt;unsigned int&gt;</a>&amp; The config entry </dd></dl>
 
 </div>
 </div>
-<a id="a0c6479be00e83621fe48338de2bbe6b0" name="a0c6479be00e83621fe48338de2bbe6b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c6479be00e83621fe48338de2bbe6b0">&#9670;&#160;</a></span>get()</h2>
+<a id="a59fa8b5c72841efd3fa4491b0493ea8e" name="a59fa8b5c72841efd3fa4491b0493ea8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59fa8b5c72841efd3fa4491b0493ea8e">&#9670;&#160;</a></span>stringEntry()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string Config::get </td>
+          <td class="memname"><a class="el" href="classConfigEntry.html">ConfigEntry</a>&lt; string &gt; &amp; Config::stringEntry </td>
           <td>(</td>
-          <td class="paramtype">std::string const &amp;</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Gets the value of a configuration member. </p>
+<p>Get a string config entry. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">id</td><td>The id of the member. </td></tr>
+    <tr><td class="paramname">id</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::string The value of the member. Empty string if the member is not found. </dd></dl>
-
-</div>
-</div>
-<a id="ac9a39cfc53fb14376658cf52b5f5dfd2" name="ac9a39cfc53fb14376658cf52b5f5dfd2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9a39cfc53fb14376658cf52b5f5dfd2">&#9670;&#160;</a></span>set()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Config::set </td>
-          <td>(</td>
-          <td class="paramtype">std::string const &amp;</td>          <td class="paramname"><span class="paramname"><em>id</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string const &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Sets the value of a configuration member. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td>The id of the member. </td></tr>
-    <tr><td class="paramname">value</td><td>The value to set. </td></tr>
-  </table>
-  </dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classConfigEntry.html">ConfigEntry&lt;string&gt;</a>&amp; The config entry </dd></dl>
 
 </div>
 </div>

@@ -8,12 +8,14 @@
 
 #include "bus.hpp"
 #include "config.hpp"
+#include "config_entry.hpp"
 #include "debugger.hpp"
 #include "logger.hpp"
 #include "video.hpp"
 #include "wram.hpp"
 
 using std::shared_ptr;
+using std::string;
 
 int main() {
     IdLogger logMain = Logger::newIdLogger("MAIN");
@@ -30,10 +32,24 @@ int main() {
         p_bus->write(0x21, 0x0000);
         p_bus->read(0x0000);
 
-        auto config = shared_ptr<Config>(Config::defaultConfig());
-        config->logConfig();
-
         auto p_video = shared_ptr<Video>(new Video(500, 500));
+
+        const vector<ConfigEntry<unsigned int>>& defaultConfInt = {
+            ConfigEntry<unsigned int>(
+                "FPS", 60, [](int n) { return (n >= 0) && (n < 500); }),
+            ConfigEntry<unsigned int>(
+                "DEBUG_LEVEL", 0, [](int n) { return (n >= 0) && (n < 4); }),
+        };
+
+        const vector<ConfigEntry<string>>& defaultConfString = {};
+
+        auto conf = Config(defaultConfInt, defaultConfString);
+
+        conf.intEntry("FPS").set(40);
+        logMain << std::to_string(conf.intEntry("FPS").get());
+        logMain.flushSsLog();
+        logMain << std::to_string(conf.intEntry("Prout").get());
+        logMain.flushSsLog();
 
         // Boucle d'événements
         bool quit = false;
@@ -47,8 +63,6 @@ int main() {
             SDL_Delay(16);
         }
     }
-
-    
 
     return 0;
 }

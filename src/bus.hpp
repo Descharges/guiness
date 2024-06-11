@@ -92,11 +92,6 @@ class Bus {
 
     /**
      * @brief "Plugs" a device into the bus.
-     *
-     * This is a test.
-     *
-     * @param startAddr The first address which should be redirected to the
-     * device
      * @param p_device Shared pointer to the device to add
      */
     void addDevice(shared_ptr<BusDevice<addr_t, data_t>> p_device);

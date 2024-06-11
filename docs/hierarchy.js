@@ -7,6 +7,9 @@ var hierarchy =
       [ "WRam", "classWRam.html", null ]
     ] ],
     [ "Config", "classConfig.html", null ],
+    [ "ConfigEntry< T >", "classConfigEntry.html", null ],
+    [ "ConfigEntry< string >", "classConfigEntry.html", null ],
+    [ "ConfigEntry< unsigned int >", "classConfigEntry.html", null ],
     [ "Debugger", "classDebugger.html", null ],
     [ "IdLogger", "classIdLogger.html", null ],
     [ "Logger", "classLogger.html", null ],

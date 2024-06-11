@@ -113,21 +113,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aad5a3ce9467759e30263d591a3f5326d" id="r_aad5a3ce9467759e30263d591a3f5326d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad5a3ce9467759e30263d591a3f5326d">logCStr</a> (const char *p_logMessage, LogLevel lvl=debug)</td></tr>
 <tr class="memdesc:aad5a3ce9467759e30263d591a3f5326d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs a C string.  <br /></td></tr>
 <tr class="separator:aad5a3ce9467759e30263d591a3f5326d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8dc317c84afcb951195c9292ddc2292" id="r_ac8dc317c84afcb951195c9292ddc2292"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8dc317c84afcb951195c9292ddc2292">logStr</a> (std::string logMessage, LogLevel lvl=debug)</td></tr>
-<tr class="memdesc:ac8dc317c84afcb951195c9292ddc2292"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs a std::string.  <br /></td></tr>
-<tr class="separator:ac8dc317c84afcb951195c9292ddc2292"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6417c3dc876028db4de90da8cabf2655" id="r_a6417c3dc876028db4de90da8cabf2655"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6417c3dc876028db4de90da8cabf2655">logSStream</a> (std::stringstream &amp;logStream, LogLevel lvl=debug)</td></tr>
-<tr class="memdesc:a6417c3dc876028db4de90da8cabf2655"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs a std::stringstream.  <br /></td></tr>
-<tr class="separator:a6417c3dc876028db4de90da8cabf2655"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3296951a1f83b32541983ef356a86ee1" id="r_a3296951a1f83b32541983ef356a86ee1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3296951a1f83b32541983ef356a86ee1">logStr</a> (string logMessage, LogLevel lvl=debug)</td></tr>
+<tr class="memdesc:a3296951a1f83b32541983ef356a86ee1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs a string.  <br /></td></tr>
+<tr class="separator:a3296951a1f83b32541983ef356a86ee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac83f4cdaf2b21d5a1b8cb54c9e5951ae" id="r_ac83f4cdaf2b21d5a1b8cb54c9e5951ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac83f4cdaf2b21d5a1b8cb54c9e5951ae">logSStream</a> (stringstream &amp;logStream, LogLevel lvl=debug)</td></tr>
+<tr class="memdesc:ac83f4cdaf2b21d5a1b8cb54c9e5951ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs a stringstream.  <br /></td></tr>
+<tr class="separator:ac83f4cdaf2b21d5a1b8cb54c9e5951ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac59b0b75e878164881e5bb8b48da1a56" id="r_ac59b0b75e878164881e5bb8b48da1a56"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac59b0b75e878164881e5bb8b48da1a56">IdLogger</a> (const char *p_id, <a class="el" href="classLogger.html">Logger</a> &amp;loggerInstance)</td></tr>
 <tr class="memdesc:ac59b0b75e878164881e5bb8b48da1a56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classLogger.html" title="Singelton used for logging.">Logger</a> Proxy object Using this constructor direclty is impossible since obtaining a LoggerInstance is impossible. The logger has a method to obtain a new <a class="el" href="classIdLogger.html" title="used to interract with the logger instance. Forces to use a unique and constant identifier.">IdLogger</a>.  <br /></td></tr>
 <tr class="separator:ac59b0b75e878164881e5bb8b48da1a56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50a031d8d330c061e0d9fbb305abfd4b" id="r_a50a031d8d330c061e0d9fbb305abfd4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50a031d8d330c061e0d9fbb305abfd4b">setPrintTarget</a> (WINDOW *p_targetWindow)</td></tr>
 <tr class="memdesc:a50a031d8d330c061e0d9fbb305abfd4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Ncurses window which will receive log messages.  <br /></td></tr>
 <tr class="separator:a50a031d8d330c061e0d9fbb305abfd4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef4a3eba0823a4694032c7ab35dd0298" id="r_aef4a3eba0823a4694032c7ab35dd0298"><td class="memItemLeft" align="right" valign="top">std::stringstream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef4a3eba0823a4694032c7ab35dd0298">getStringStream</a> ()</td></tr>
-<tr class="memdesc:aef4a3eba0823a4694032c7ab35dd0298"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the String Stream object.  <br /></td></tr>
-<tr class="separator:aef4a3eba0823a4694032c7ab35dd0298"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b46c4c156dc8e760ab27181261c90e2" id="r_a4b46c4c156dc8e760ab27181261c90e2"><td class="memItemLeft" align="right" valign="top">stringstream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b46c4c156dc8e760ab27181261c90e2">getStringStream</a> ()</td></tr>
+<tr class="memdesc:a4b46c4c156dc8e760ab27181261c90e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the String Stream object.  <br /></td></tr>
+<tr class="separator:a4b46c4c156dc8e760ab27181261c90e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4173e5ccadd45f616085cbf248a58902" id="r_a4173e5ccadd45f616085cbf248a58902"><td class="memItemLeft" align="right" valign="top"><a id="a4173e5ccadd45f616085cbf248a58902" name="a4173e5ccadd45f616085cbf248a58902"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>flushSsLog</b> (LogLevel lvl=debug)</td></tr>
 <tr class="memdesc:a4173e5ccadd45f616085cbf248a58902"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display the content of the string stream and clears it. <br /></td></tr>
@@ -135,9 +135,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>flushSsLog</b> (LogLe
 <tr class="memitem:a43c34cc97edddce30d246ad013d56292" id="r_a43c34cc97edddce30d246ad013d56292"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIdLogger.html">IdLogger</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43c34cc97edddce30d246ad013d56292">operator&lt;&lt;</a> (const char *p_cStr)</td></tr>
 <tr class="memdesc:a43c34cc97edddce30d246ad013d56292"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a C string to the logger string stream.  <br /></td></tr>
 <tr class="separator:a43c34cc97edddce30d246ad013d56292"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b3c37cde133b6286bfaf13d0c9dd9b3" id="r_a0b3c37cde133b6286bfaf13d0c9dd9b3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIdLogger.html">IdLogger</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b3c37cde133b6286bfaf13d0c9dd9b3">operator&lt;&lt;</a> (std::string str)</td></tr>
-<tr class="memdesc:a0b3c37cde133b6286bfaf13d0c9dd9b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a string to the logger string stream.  <br /></td></tr>
-<tr class="separator:a0b3c37cde133b6286bfaf13d0c9dd9b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14a9b0047b2aec9aa4d980ef61f03fc8" id="r_a14a9b0047b2aec9aa4d980ef61f03fc8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIdLogger.html">IdLogger</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14a9b0047b2aec9aa4d980ef61f03fc8">operator&lt;&lt;</a> (string str)</td></tr>
+<tr class="memdesc:a14a9b0047b2aec9aa4d980ef61f03fc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a string to the logger string stream.  <br /></td></tr>
+<tr class="separator:a14a9b0047b2aec9aa4d980ef61f03fc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>used to interract with the logger instance. Forces to use a unique and constant identifier. </p>
@@ -173,14 +173,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>flushSsLog</b> (LogLe
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aef4a3eba0823a4694032c7ab35dd0298" name="aef4a3eba0823a4694032c7ab35dd0298"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef4a3eba0823a4694032c7ab35dd0298">&#9670;&#160;</a></span>getStringStream()</h2>
+<a id="a4b46c4c156dc8e760ab27181261c90e2" name="a4b46c4c156dc8e760ab27181261c90e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b46c4c156dc8e760ab27181261c90e2">&#9670;&#160;</a></span>getStringStream()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::stringstream &amp; IdLogger::getStringStream </td>
+          <td class="memname">stringstream &amp; IdLogger::getStringStream </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
@@ -189,7 +189,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>flushSsLog</b> (LogLe
 </div><div class="memdoc">
 
 <p>Get the String Stream object. </p>
-<dl class="section return"><dt>Returns</dt><dd>std::stringstream </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>stringstream </dd></dl>
 
 </div>
 </div>
@@ -223,8 +223,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>flushSsLog</b> (LogLe
 
 </div>
 </div>
-<a id="a6417c3dc876028db4de90da8cabf2655" name="a6417c3dc876028db4de90da8cabf2655"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6417c3dc876028db4de90da8cabf2655">&#9670;&#160;</a></span>logSStream()</h2>
+<a id="ac83f4cdaf2b21d5a1b8cb54c9e5951ae" name="ac83f4cdaf2b21d5a1b8cb54c9e5951ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac83f4cdaf2b21d5a1b8cb54c9e5951ae">&#9670;&#160;</a></span>logSStream()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -232,7 +232,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>flushSsLog</b> (LogLe
         <tr>
           <td class="memname">void IdLogger::logSStream </td>
           <td>(</td>
-          <td class="paramtype">std::stringstream &amp;</td>          <td class="paramname"><span class="paramname"><em>logStream</em>, </span></td>
+          <td class="paramtype">stringstream &amp;</td>          <td class="paramname"><span class="paramname"><em>logStream</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -242,7 +242,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>flushSsLog</b> (LogLe
       </table>
 </div><div class="memdoc">
 
-<p>Logs a std::stringstream. </p>
+<p>Logs a stringstream. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">logStream</td><td></td></tr>
@@ -253,8 +253,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>flushSsLog</b> (LogLe
 
 </div>
 </div>
-<a id="ac8dc317c84afcb951195c9292ddc2292" name="ac8dc317c84afcb951195c9292ddc2292"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8dc317c84afcb951195c9292ddc2292">&#9670;&#160;</a></span>logStr()</h2>
+<a id="a3296951a1f83b32541983ef356a86ee1" name="a3296951a1f83b32541983ef356a86ee1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3296951a1f83b32541983ef356a86ee1">&#9670;&#160;</a></span>logStr()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -262,7 +262,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>flushSsLog</b> (LogLe
         <tr>
           <td class="memname">void IdLogger::logStr </td>
           <td>(</td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>logMessage</em>, </span></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>logMessage</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -272,7 +272,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>flushSsLog</b> (LogLe
       </table>
 </div><div class="memdoc">
 
-<p>Logs a std::string. </p>
+<p>Logs a string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">logMessage</td><td></td></tr>
@@ -309,8 +309,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>flushSsLog</b> (LogLe
 
 </div>
 </div>
-<a id="a0b3c37cde133b6286bfaf13d0c9dd9b3" name="a0b3c37cde133b6286bfaf13d0c9dd9b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b3c37cde133b6286bfaf13d0c9dd9b3">&#9670;&#160;</a></span>operator&lt;&lt;() <span class="overload">[2/2]</span></h2>
+<a id="a14a9b0047b2aec9aa4d980ef61f03fc8" name="a14a9b0047b2aec9aa4d980ef61f03fc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14a9b0047b2aec9aa4d980ef61f03fc8">&#9670;&#160;</a></span>operator&lt;&lt;() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -318,7 +318,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>flushSsLog</b> (LogLe
         <tr>
           <td class="memname"><a class="el" href="classIdLogger.html">IdLogger</a> &amp; IdLogger::operator&lt;&lt; </td>
           <td>(</td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>

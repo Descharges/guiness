@@ -119,79 +119,83 @@ $(function(){initNavTree('logger_8hpp_source.html',''); initResizable(); });
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define DEFAULT_PAIR 4</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#define INFO_PAIR 5</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">enum</span> LogLevel { debug, info, warning, error };</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">class </span><a class="code hl_class" href="classIdLogger.html">IdLogger</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">using </span>std::string;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">using </span>std::stringstream;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classLogger.html">   24</a></span><span class="keyword">class </span><a class="code hl_class" href="classLogger.html">Logger</a> {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>   <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">static</span> <a class="code hl_class" href="classIdLogger.html">IdLogger</a> <a class="code hl_function" href="classLogger.html#ac1be085bef12f9105e808b1ab2adbcf0">newIdLogger</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *p_id);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classLogger.html#ac2a7b1a512d438dd6c25548ca71cef71">formatHex8</a>(uint8_t n);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classLogger.html#a5c05afd0a8347dfd67fd4424ac9faf2e">formatHex16</a>(uint16_t n);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLogger.html#a814ac17892866a05114382c660127fc6">setPrintTarget</a>(WINDOW *p_targetWindow);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLogger.html#a82183d97eb0d12acd219ee9ecd5bbc67">printLogMessage</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *p_id, <span class="keyword">const</span> <span class="keywordtype">char</span> *p_message, LogLevel lvl);</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>   <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <a class="code hl_class" href="classLogger.html">Logger</a>();</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keyword">static</span> <a class="code hl_class" href="classLogger.html">Logger</a> s_instance;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    WINDOW *p_displayWindow = NULL;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>};</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">enum</span> LogLevel { debug, info, warning, error };</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">class </span><a class="code hl_class" href="classIdLogger.html">IdLogger</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classLogger.html">   28</a></span><span class="keyword">class </span><a class="code hl_class" href="classLogger.html">Logger</a> {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>   <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">static</span> <a class="code hl_class" href="classIdLogger.html">IdLogger</a> <a class="code hl_function" href="classLogger.html#ac1be085bef12f9105e808b1ab2adbcf0">newIdLogger</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *p_id);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">static</span> <span class="keywordtype">string</span> <a class="code hl_function" href="classLogger.html#a47e1a8a9aa454a861cf29489e0689124">formatHex8</a>(uint8_t n);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keyword">static</span> <span class="keywordtype">string</span> <a class="code hl_function" href="classLogger.html#a5aa0be510d83c60ff27fa00f31d42011">formatHex16</a>(uint16_t n);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLogger.html#a814ac17892866a05114382c660127fc6">setPrintTarget</a>(WINDOW *p_targetWindow);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLogger.html#a82183d97eb0d12acd219ee9ecd5bbc67">printLogMessage</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *p_id, <span class="keyword">const</span> <span class="keywordtype">char</span> *p_message, LogLevel lvl);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>   <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <a class="code hl_class" href="classLogger.html">Logger</a>();</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keyword">static</span> <a class="code hl_class" href="classLogger.html">Logger</a> s_instance;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    WINDOW *p_displayWindow = NULL;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>};</div>
 </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="foldopen" id="foldopen00090" data-start="{" data-end="};">
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="classIdLogger.html">   90</a></span><span class="keyword">class </span><a class="code hl_class" href="classIdLogger.html">IdLogger</a> {</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>   <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classIdLogger.html#aad5a3ce9467759e30263d591a3f5326d">logCStr</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *p_logMessage, LogLevel lvl = debug);</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classIdLogger.html#ac8dc317c84afcb951195c9292ddc2292">logStr</a>(std::string logMessage, LogLevel lvl = debug);</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classIdLogger.html#a6417c3dc876028db4de90da8cabf2655">logSStream</a>(std::stringstream &amp;logStream, LogLevel lvl = debug);</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <a class="code hl_class" href="classIdLogger.html">IdLogger</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *p_id, <a class="code hl_class" href="classLogger.html">Logger</a> &amp;loggerInstance);</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classIdLogger.html#a50a031d8d330c061e0d9fbb305abfd4b">setPrintTarget</a>(WINDOW *p_targetWindow);</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    std::stringstream &amp;<a class="code hl_function" href="classIdLogger.html#aef4a3eba0823a4694032c7ab35dd0298">getStringStream</a>();</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classIdLogger.html#a4173e5ccadd45f616085cbf248a58902">flushSsLog</a>(LogLevel lvl = debug);</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <a class="code hl_class" href="classIdLogger.html">IdLogger</a> &amp;<a class="code hl_function" href="classIdLogger.html#a43c34cc97edddce30d246ad013d56292">operator&lt;&lt;</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *p_cStr);</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <a class="code hl_class" href="classIdLogger.html">IdLogger</a> &amp;<a class="code hl_function" href="classIdLogger.html#a43c34cc97edddce30d246ad013d56292">operator&lt;&lt;</a>(std::string str);</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>   <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *p_id;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="foldopen" id="foldopen00094" data-start="{" data-end="};">
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="classIdLogger.html">   94</a></span><span class="keyword">class </span><a class="code hl_class" href="classIdLogger.html">IdLogger</a> {</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>   <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classIdLogger.html#aad5a3ce9467759e30263d591a3f5326d">logCStr</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *p_logMessage, LogLevel lvl = debug);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classIdLogger.html#a3296951a1f83b32541983ef356a86ee1">logStr</a>(<span class="keywordtype">string</span> logMessage, LogLevel lvl = debug);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classIdLogger.html#ac83f4cdaf2b21d5a1b8cb54c9e5951ae">logSStream</a>(stringstream &amp;logStream, LogLevel lvl = debug);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <a class="code hl_class" href="classIdLogger.html">IdLogger</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *p_id, <a class="code hl_class" href="classLogger.html">Logger</a> &amp;loggerInstance);</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classIdLogger.html#a50a031d8d330c061e0d9fbb305abfd4b">setPrintTarget</a>(WINDOW *p_targetWindow);</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    stringstream &amp;<a class="code hl_function" href="classIdLogger.html#a4b46c4c156dc8e760ab27181261c90e2">getStringStream</a>();</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classIdLogger.html#a4173e5ccadd45f616085cbf248a58902">flushSsLog</a>(LogLevel lvl = debug);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <a class="code hl_class" href="classIdLogger.html">IdLogger</a> &amp;<a class="code hl_function" href="classIdLogger.html#a43c34cc97edddce30d246ad013d56292">operator&lt;&lt;</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *p_cStr);</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <a class="code hl_class" href="classIdLogger.html">IdLogger</a> &amp;<a class="code hl_function" href="classIdLogger.html#a43c34cc97edddce30d246ad013d56292">operator&lt;&lt;</a>(<span class="keywordtype">string</span> str);</div>
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <a class="code hl_class" href="classLogger.html">Logger</a> &amp;logger;</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    std::stringstream sslog;</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <a class="code hl_class" href="classIdLogger.html">IdLogger</a>();</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>};</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>   <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *p_id;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <a class="code hl_class" href="classLogger.html">Logger</a> &amp;logger;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    stringstream sslog;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <a class="code hl_class" href="classIdLogger.html">IdLogger</a>();</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>};</div>
 </div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassIdLogger_html"><div class="ttname"><a href="classIdLogger.html">IdLogger</a></div><div class="ttdoc">used to interract with the logger instance. Forces to use a unique and constant identifier.</div><div class="ttdef"><b>Definition</b> logger.hpp:90</div></div>
-<div class="ttc" id="aclassIdLogger_html_a4173e5ccadd45f616085cbf248a58902"><div class="ttname"><a href="classIdLogger.html#a4173e5ccadd45f616085cbf248a58902">IdLogger::flushSsLog</a></div><div class="ttdeci">void flushSsLog(LogLevel lvl=debug)</div><div class="ttdoc">Display the content of the string stream and clears it.</div><div class="ttdef"><b>Definition</b> logger.cpp:82</div></div>
-<div class="ttc" id="aclassIdLogger_html_a43c34cc97edddce30d246ad013d56292"><div class="ttname"><a href="classIdLogger.html#a43c34cc97edddce30d246ad013d56292">IdLogger::operator&lt;&lt;</a></div><div class="ttdeci">IdLogger &amp; operator&lt;&lt;(const char *p_cStr)</div><div class="ttdoc">Adds a C string to the logger string stream.</div><div class="ttdef"><b>Definition</b> logger.cpp:87</div></div>
-<div class="ttc" id="aclassIdLogger_html_a50a031d8d330c061e0d9fbb305abfd4b"><div class="ttname"><a href="classIdLogger.html#a50a031d8d330c061e0d9fbb305abfd4b">IdLogger::setPrintTarget</a></div><div class="ttdeci">void setPrintTarget(WINDOW *p_targetWindow)</div><div class="ttdoc">Set the Ncurses window which will receive log messages.</div><div class="ttdef"><b>Definition</b> logger.cpp:76</div></div>
-<div class="ttc" id="aclassIdLogger_html_a6417c3dc876028db4de90da8cabf2655"><div class="ttname"><a href="classIdLogger.html#a6417c3dc876028db4de90da8cabf2655">IdLogger::logSStream</a></div><div class="ttdeci">void logSStream(std::stringstream &amp;logStream, LogLevel lvl=debug)</div><div class="ttdoc">Logs a std::stringstream.</div><div class="ttdef"><b>Definition</b> logger.cpp:72</div></div>
-<div class="ttc" id="aclassIdLogger_html_aad5a3ce9467759e30263d591a3f5326d"><div class="ttname"><a href="classIdLogger.html#aad5a3ce9467759e30263d591a3f5326d">IdLogger::logCStr</a></div><div class="ttdeci">void logCStr(const char *p_logMessage, LogLevel lvl=debug)</div><div class="ttdoc">Logs a C string.</div><div class="ttdef"><b>Definition</b> logger.cpp:64</div></div>
-<div class="ttc" id="aclassIdLogger_html_ac8dc317c84afcb951195c9292ddc2292"><div class="ttname"><a href="classIdLogger.html#ac8dc317c84afcb951195c9292ddc2292">IdLogger::logStr</a></div><div class="ttdeci">void logStr(std::string logMessage, LogLevel lvl=debug)</div><div class="ttdoc">Logs a std::string.</div><div class="ttdef"><b>Definition</b> logger.cpp:68</div></div>
-<div class="ttc" id="aclassIdLogger_html_aef4a3eba0823a4694032c7ab35dd0298"><div class="ttname"><a href="classIdLogger.html#aef4a3eba0823a4694032c7ab35dd0298">IdLogger::getStringStream</a></div><div class="ttdeci">std::stringstream &amp; getStringStream()</div><div class="ttdoc">Get the String Stream object.</div><div class="ttdef"><b>Definition</b> logger.cpp:80</div></div>
-<div class="ttc" id="aclassLogger_html"><div class="ttname"><a href="classLogger.html">Logger</a></div><div class="ttdoc">Singelton used for logging.</div><div class="ttdef"><b>Definition</b> logger.hpp:24</div></div>
-<div class="ttc" id="aclassLogger_html_a5c05afd0a8347dfd67fd4424ac9faf2e"><div class="ttname"><a href="classLogger.html#a5c05afd0a8347dfd67fd4424ac9faf2e">Logger::formatHex16</a></div><div class="ttdeci">static std::string formatHex16(uint16_t n)</div><div class="ttdoc">Format 16 bit numbers as hexadecimal in a string (65536 -&gt; 0xFFFF)</div><div class="ttdef"><b>Definition</b> logger.cpp:104</div></div>
-<div class="ttc" id="aclassLogger_html_a814ac17892866a05114382c660127fc6"><div class="ttname"><a href="classLogger.html#a814ac17892866a05114382c660127fc6">Logger::setPrintTarget</a></div><div class="ttdeci">void setPrintTarget(WINDOW *p_targetWindow)</div><div class="ttdoc">Set the Ncurses window which will receive log messages.</div><div class="ttdef"><b>Definition</b> logger.cpp:20</div></div>
-<div class="ttc" id="aclassLogger_html_a82183d97eb0d12acd219ee9ecd5bbc67"><div class="ttname"><a href="classLogger.html#a82183d97eb0d12acd219ee9ecd5bbc67">Logger::printLogMessage</a></div><div class="ttdeci">void printLogMessage(const char *p_id, const char *p_message, LogLevel lvl)</div><div class="ttdoc">Print log message to target windows if set, STDOUT if not.</div><div class="ttdef"><b>Definition</b> logger.cpp:24</div></div>
-<div class="ttc" id="aclassLogger_html_ac1be085bef12f9105e808b1ab2adbcf0"><div class="ttname"><a href="classLogger.html#ac1be085bef12f9105e808b1ab2adbcf0">Logger::newIdLogger</a></div><div class="ttdeci">static IdLogger newIdLogger(const char *p_id)</div><div class="ttdoc">create a new Logger Proxy object This is the object with which is used to log messages</div><div class="ttdef"><b>Definition</b> logger.cpp:16</div></div>
-<div class="ttc" id="aclassLogger_html_ac2a7b1a512d438dd6c25548ca71cef71"><div class="ttname"><a href="classLogger.html#ac2a7b1a512d438dd6c25548ca71cef71">Logger::formatHex8</a></div><div class="ttdeci">static std::string formatHex8(uint8_t n)</div><div class="ttdoc">Format 8 bit numbers as hexadecimal in a string (255 -&gt; 0xFF)</div><div class="ttdef"><b>Definition</b> logger.cpp:97</div></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassIdLogger_html"><div class="ttname"><a href="classIdLogger.html">IdLogger</a></div><div class="ttdoc">used to interract with the logger instance. Forces to use a unique and constant identifier.</div><div class="ttdef"><b>Definition</b> logger.hpp:94</div></div>
+<div class="ttc" id="aclassIdLogger_html_a3296951a1f83b32541983ef356a86ee1"><div class="ttname"><a href="classIdLogger.html#a3296951a1f83b32541983ef356a86ee1">IdLogger::logStr</a></div><div class="ttdeci">void logStr(string logMessage, LogLevel lvl=debug)</div><div class="ttdoc">Logs a string.</div><div class="ttdef"><b>Definition</b> logger.cpp:75</div></div>
+<div class="ttc" id="aclassIdLogger_html_a4173e5ccadd45f616085cbf248a58902"><div class="ttname"><a href="classIdLogger.html#a4173e5ccadd45f616085cbf248a58902">IdLogger::flushSsLog</a></div><div class="ttdeci">void flushSsLog(LogLevel lvl=debug)</div><div class="ttdoc">Display the content of the string stream and clears it.</div><div class="ttdef"><b>Definition</b> logger.cpp:89</div></div>
+<div class="ttc" id="aclassIdLogger_html_a43c34cc97edddce30d246ad013d56292"><div class="ttname"><a href="classIdLogger.html#a43c34cc97edddce30d246ad013d56292">IdLogger::operator&lt;&lt;</a></div><div class="ttdeci">IdLogger &amp; operator&lt;&lt;(const char *p_cStr)</div><div class="ttdoc">Adds a C string to the logger string stream.</div><div class="ttdef"><b>Definition</b> logger.cpp:94</div></div>
+<div class="ttc" id="aclassIdLogger_html_a4b46c4c156dc8e760ab27181261c90e2"><div class="ttname"><a href="classIdLogger.html#a4b46c4c156dc8e760ab27181261c90e2">IdLogger::getStringStream</a></div><div class="ttdeci">stringstream &amp; getStringStream()</div><div class="ttdoc">Get the String Stream object.</div><div class="ttdef"><b>Definition</b> logger.cpp:87</div></div>
+<div class="ttc" id="aclassIdLogger_html_a50a031d8d330c061e0d9fbb305abfd4b"><div class="ttname"><a href="classIdLogger.html#a50a031d8d330c061e0d9fbb305abfd4b">IdLogger::setPrintTarget</a></div><div class="ttdeci">void setPrintTarget(WINDOW *p_targetWindow)</div><div class="ttdoc">Set the Ncurses window which will receive log messages.</div><div class="ttdef"><b>Definition</b> logger.cpp:83</div></div>
+<div class="ttc" id="aclassIdLogger_html_aad5a3ce9467759e30263d591a3f5326d"><div class="ttname"><a href="classIdLogger.html#aad5a3ce9467759e30263d591a3f5326d">IdLogger::logCStr</a></div><div class="ttdeci">void logCStr(const char *p_logMessage, LogLevel lvl=debug)</div><div class="ttdoc">Logs a C string.</div><div class="ttdef"><b>Definition</b> logger.cpp:71</div></div>
+<div class="ttc" id="aclassIdLogger_html_ac83f4cdaf2b21d5a1b8cb54c9e5951ae"><div class="ttname"><a href="classIdLogger.html#ac83f4cdaf2b21d5a1b8cb54c9e5951ae">IdLogger::logSStream</a></div><div class="ttdeci">void logSStream(stringstream &amp;logStream, LogLevel lvl=debug)</div><div class="ttdoc">Logs a stringstream.</div><div class="ttdef"><b>Definition</b> logger.cpp:79</div></div>
+<div class="ttc" id="aclassLogger_html"><div class="ttname"><a href="classLogger.html">Logger</a></div><div class="ttdoc">Singelton used for logging.</div><div class="ttdef"><b>Definition</b> logger.hpp:28</div></div>
+<div class="ttc" id="aclassLogger_html_a47e1a8a9aa454a861cf29489e0689124"><div class="ttname"><a href="classLogger.html#a47e1a8a9aa454a861cf29489e0689124">Logger::formatHex8</a></div><div class="ttdeci">static string formatHex8(uint8_t n)</div><div class="ttdoc">Format 8 bit numbers as hexadecimal in a string (255 -&gt; 0xFF)</div><div class="ttdef"><b>Definition</b> logger.cpp:104</div></div>
+<div class="ttc" id="aclassLogger_html_a5aa0be510d83c60ff27fa00f31d42011"><div class="ttname"><a href="classLogger.html#a5aa0be510d83c60ff27fa00f31d42011">Logger::formatHex16</a></div><div class="ttdeci">static string formatHex16(uint16_t n)</div><div class="ttdoc">Format 16 bit numbers as hexadecimal in a string (65536 -&gt; 0xFFFF)</div><div class="ttdef"><b>Definition</b> logger.cpp:110</div></div>
+<div class="ttc" id="aclassLogger_html_a814ac17892866a05114382c660127fc6"><div class="ttname"><a href="classLogger.html#a814ac17892866a05114382c660127fc6">Logger::setPrintTarget</a></div><div class="ttdeci">void setPrintTarget(WINDOW *p_targetWindow)</div><div class="ttdoc">Set the Ncurses window which will receive log messages.</div><div class="ttdef"><b>Definition</b> logger.cpp:27</div></div>
+<div class="ttc" id="aclassLogger_html_a82183d97eb0d12acd219ee9ecd5bbc67"><div class="ttname"><a href="classLogger.html#a82183d97eb0d12acd219ee9ecd5bbc67">Logger::printLogMessage</a></div><div class="ttdeci">void printLogMessage(const char *p_id, const char *p_message, LogLevel lvl)</div><div class="ttdoc">Print log message to target windows if set, STDOUT if not.</div><div class="ttdef"><b>Definition</b> logger.cpp:31</div></div>
+<div class="ttc" id="aclassLogger_html_ac1be085bef12f9105e808b1ab2adbcf0"><div class="ttname"><a href="classLogger.html#ac1be085bef12f9105e808b1ab2adbcf0">Logger::newIdLogger</a></div><div class="ttdeci">static IdLogger newIdLogger(const char *p_id)</div><div class="ttdoc">create a new Logger Proxy object This is the object with which is used to log messages</div><div class="ttdef"><b>Definition</b> logger.cpp:23</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

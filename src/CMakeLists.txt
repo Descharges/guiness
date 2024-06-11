@@ -16,6 +16,7 @@ add_executable(guiness
     wram.cpp
     dummy_device.cpp
     config.cpp
+    config_entry.cpp
     video.cpp
     debugger.hpp
     logger.hpp
@@ -23,6 +24,7 @@ add_executable(guiness
     dummy_device.hpp
     wram.hpp
     config.hpp
+    config_entry.hpp
     video.hpp
 )
 

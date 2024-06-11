@@ -7,79 +7,53 @@
 
 IdLogger logConf = Logger::newIdLogger("CONFIG");
 
-using std::unordered_map;
+using std::pair;
 using std::string;
+using std::unordered_map;
 
-const unordered_map<string, string> defaultConfigMap = {
-    {"FPS", "60"},
-    {"BREAK_MODE", "NONE"},  // {NONE, FRAME, STEP}
-    {"DEBUGGER", "TRUE"}};
-;
-
-Config::Config(unordered_map<string, string> const &initConfig) {
-    this->configMap = initConfig;
+Config::Config(const vector<ConfigEntry<unsigned int>>& intEntries,
+               const vector<ConfigEntry<string>>& stringEntries)
+    : errorString("Error", ""), errorInt("Error", 0) {
+    this->addIntsEntries(intEntries);
+    this->addStringEntries(stringEntries);
+    logConf.logCStr("Config created !");
 }
 
-Config *Config::defaultConfig() {
-    unordered_map<string, string> defaultConf = defaultConfigMap;
+Config::~Config() { logConf.logCStr("Config destroyed !", LogLevel::warning); }
 
-    return new Config(defaultConf);
-}
-
-Config *Config::configFromFile(string const &path) { throw "Not implemented"; }
-
-Config *Config::configFromArgs(int argc, char *argv[]) {
-    throw "Not implemented";
-}
-
-Config::~Config() {}
-
-bool Config::exists(string const &id) {
-    auto it = configMap.find(id);
-
-    if (it == this->configMap.end()) {
-        return false;
-    };
-
-    return true;
-}
-
-void Config::set(string const &id, string const &value) {
-    if (exists(id)) {
-        this->configMap[id] = value;
-        return;
+ConfigEntry<string>& Config::stringEntry(string id) {
+    auto pos = this->stringMap.find(id);
+    if (pos != this->stringMap.end()) {
+        return pos->second;
     }
-
-    logConf.getStringStream()
-        << "Attempt to set unexisting config member : " << id;
-    logConf.flushSsLog(error);
+    logConf
+        << "Config member '" << id
+        << "' requested but doesn't exist ! \n Returning error config member.";
+    logConf.flushSsLog(LogLevel::error);
+    return this->errorString;
 }
 
-string Config::get(string const &id) {
-    if (exists(id)) {
-        return this->configMap[id];
+ConfigEntry<unsigned int>& Config::intEntry(string id) {
+    auto pos = this->intMap.find(id);
+    if (pos != this->intMap.end()) {
+        return pos->second;
     }
-
-    logConf.getStringStream()
-        << "Attempt to get unexisting config member : " << id;
-    logConf.flushSsLog(error);
-    return "";
+    logConf
+        << "Config member '" << id
+        << "' requested but doesn't exist ! \n Returning error config member.";
+    logConf.flushSsLog(LogLevel::error);
+    return this->errorInt;
 }
 
-bool Config::getAsBool(string const &id) {
-    throw "Config::getAsBool is not implemented yet.";
-}
-
-unsigned int Config::getAsUInt(string const &id) {
-    throw "Config::getAsUInt is not implemented yet.";
-}
-
-void Config::logConfig() {
-    logConf << "\n\n"
-            << "Configuration" << "\n-------------------";
-    for (const auto &i : configMap) {
-        logConf << "\n" << i.first << "-->" << i.second;
+void Config::addStringEntries(const vector<ConfigEntry<string>>& entries) {
+    for (ConfigEntry<string> i : entries) {
+        this->stringMap.insert(pair<string, ConfigEntry<string>>(i.getId(), i));
     }
-    logConf << "\n";
-    logConf.flushSsLog();
+}
+
+void Config::addIntsEntries(const vector<ConfigEntry<unsigned int>>& entries) {
+    for (ConfigEntry<unsigned int> i : entries) {
+        this->intMap.insert(
+            pair<string, ConfigEntry<unsigned int>>(i.getId(), i));
+    }
 }

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['config_0',['Config',['../classConfig.html#a19d0d04ac28188ce9fd972ea39524499',1,'Config']]]
+  ['config_0',['Config',['../classConfig.html#a2cfa7fe54c99dc4e81c63b350aaca106',1,'Config']]],
+  ['configentry_1',['ConfigEntry',['../classConfigEntry.html#a4ff9f9756d3e0985d52147b4ade0faa4',1,'ConfigEntry']]]
 ];

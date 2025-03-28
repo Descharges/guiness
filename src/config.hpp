@@ -13,54 +13,17 @@ using std::vector;
 
 class Config {
    public:
-    /**
-     * @brief Construct a new Config object
-     *
-     */
-    Config(const vector<ConfigEntry<unsigned int>>& intEntries,
-           const vector<ConfigEntry<string>>& stringEntries);
+       /// @brief Creates a new config.
+       Config();
 
-    /**
-     * @brief Destroy the Config object
-     *
-     */
-    ~Config();
+       /// @brief Destroys the config.
+       ~Config();
 
-    /**
-     * @brief Get a string config entry
-     *
-     * @param id
-     * @return ConfigEntry<string>& The config entry
-     */
-    ConfigEntry<string>& stringEntry(string id);
+       /// The FPS count. 0 = unlimited.
+       int FPS;
 
-    /**
-     * @brief Get an int config entry
-     *
-     * @param id
-     * @return ConfigEntry<unsigned int>& The config entry
-     */
-    ConfigEntry<unsigned int>& intEntry(string id);
-
-   private:
-    /**
-     * @brief Add new string entries to the Config
-     *
-     * @param entries The entries to be added
-     */
-    void addStringEntries(const vector<ConfigEntry<string>>& entries);
-
-    /**
-     * @brief Add new int entries to the Config
-     *
-     * @param entries
-     */
-    void addIntsEntries(const vector<ConfigEntry<unsigned int>>& entries);
-
-    unordered_map<string, ConfigEntry<string>> stringMap;
-    unordered_map<string, ConfigEntry<unsigned int>> intMap;
-    ConfigEntry<string> errorString;
-    ConfigEntry<unsigned int> errorInt;
+       /// If true, the user will have to enter a key to advance each frame;
+       bool FrameToFrameMode;
 };
 
 #endif

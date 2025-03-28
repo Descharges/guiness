@@ -17,7 +17,8 @@
 using std::shared_ptr;
 using std::string;
 
-int main() {
+int main()
+{
     IdLogger logMain = Logger::newIdLogger("MAIN");
 
     Debugger debugger;
@@ -33,30 +34,19 @@ int main() {
         p_bus->read(0x0000);
 
         auto p_video = shared_ptr<Video>(new Video(500, 500));
+        auto config = shared_ptr<Config>(new Config());
 
-        const vector<ConfigEntry<unsigned int>>& defaultConfInt = {
-            ConfigEntry<unsigned int>(
-                "FPS", 60, [](int n) { return (n >= 0) && (n < 500); }),
-            ConfigEntry<unsigned int>(
-                "DEBUG_LEVEL", 0, [](int n) { return (n >= 0) && (n < 4); }),
-        };
-
-        const vector<ConfigEntry<string>>& defaultConfString = {};
-
-        auto conf = Config(defaultConfInt, defaultConfString);
-
-        conf.intEntry("FPS").set(40);
-        logMain << std::to_string(conf.intEntry("FPS").get());
-        logMain.flushSsLog();
-        logMain << std::to_string(conf.intEntry("Prout").get());
-        logMain.flushSsLog();
+        logMain.logStr(std::to_string(config->FPS));
 
         // Boucle d'événements
         bool quit = false;
         SDL_Event e;
-        while (!quit) {
-            while (SDL_PollEvent(&e) != 0) {
-                if (e.type == SDL_QUIT) {
+        while (!quit)
+        {
+            while (SDL_PollEvent(&e) != 0)
+            {
+                if (e.type == SDL_QUIT)
+                {
                     quit = true;
                 }
             }
